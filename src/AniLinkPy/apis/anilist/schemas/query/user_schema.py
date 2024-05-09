@@ -6,6 +6,33 @@ from ..title_schema import TitleSchema
 from ..user_stats_schema import UserAnimeStatsSchema
 from ..user_stats_schema import UserMangaStatsSchema
 
+"""
+This is the UserSchema for the Anilist API. It defines the structure of the user data that is expected to be returned from the API.
+
+Attributes:
+    id (int): The user's ID.
+    name (str): The user's name.
+    about (str): The user's about information.
+    avatar (dict): The user's avatar, with 'large' and 'medium' sizes.
+    bannerImage (str): The URL of the user's banner image.
+    isFollowing (bool): Whether the user is following.
+    isFollower (bool): Whether the user is a follower.
+    isBlocked (bool): Whether the user is blocked.
+    bans (list): The user's bans.
+    options (dict): The user's options.
+    mediaListOptions (dict): The user's media list options.
+    favourites (dict): The user's favourites.
+    statistics (dict): The user's statistics.
+    stats (dict): The user's stats.
+    unreadNotificationCount (int): The user's unread notification count.
+    siteUrl (str): The user's site URL.
+    donatorTier (int): The user's donator tier.
+    donatorBadge (str): The user's donator badge.
+    moderatorRoles (list): The user's moderator roles.
+    createdAt (int): The timestamp of when the user was created.
+    updatedAt (int): The timestamp of when the user was last updated.
+    previousNames (list): The user's previous names.
+"""
 UserSchema = f"""
   id
   name
