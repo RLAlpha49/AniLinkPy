@@ -1,0 +1,6 @@
+ImageSchema = """
+image {
+  large
+  medium
+}
+"""
