@@ -2,8 +2,8 @@
 This module contains the UserQuery class which represents a user query in the AniLink API.
 """
 
-from src.AniLinkPy.apis.anilist.schemas.query.user_schema import UserSchema
-from src.AniLinkPy.base.RequestHandler import send_request
+from AniLinkPy.apis.anilist.schemas.query.user_schema import UserSchema
+from AniLinkPy.base.RequestHandler import send_request
 
 
 class UserQuery:
@@ -25,7 +25,7 @@ class UserQuery:
         self.base_url = "https://graphql.anilist.co"
         self.auth_token = auth_token
 
-    def user(self, variables):
+    def user(self, variables) -> dict:
         """
         This method is used to send a user query.
 

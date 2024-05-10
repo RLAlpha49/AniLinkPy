@@ -6,7 +6,7 @@ This module contains the send_request function which is used to send HTTP reques
 import requests
 
 
-def send_request(url, method, data=None, token=None, timeout=15):
+def send_request(url, method, data=None, token=None, timeout=15) -> dict:
     """
     This function sends a request to the specified URL.
 

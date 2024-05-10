@@ -27,12 +27,12 @@ Attributes:
     previousNames (list): The user's previous names.
 """
 
-from src.AniLinkPy.apis.anilist.schemas.cover_image_schema import COVERIMAGESCHEMA
-from src.AniLinkPy.apis.anilist.schemas.image_schema import IMAGESCHEMA
-from src.AniLinkPy.apis.anilist.schemas.name_schema import NAMESCHEMA
-from src.AniLinkPy.apis.anilist.schemas.tag_schema import TAGSCHEMA
-from src.AniLinkPy.apis.anilist.schemas.title_schema import TITLESCHEMA
-from src.AniLinkPy.apis.anilist.schemas.user_stats_schema import (
+from AniLinkPy.apis.anilist.schemas.cover_image_schema import COVERIMAGESCHEMA
+from AniLinkPy.apis.anilist.schemas.image_schema import IMAGESCHEMA
+from AniLinkPy.apis.anilist.schemas.name_schema import NAMESCHEMA
+from AniLinkPy.apis.anilist.schemas.tag_schema import TAGSCHEMA
+from AniLinkPy.apis.anilist.schemas.title_schema import TITLESCHEMA
+from AniLinkPy.apis.anilist.schemas.user_stats_schema import (
     USERANIMESTATSSCHEMA,
     USERMANGASTATSSCHEMA,
 )

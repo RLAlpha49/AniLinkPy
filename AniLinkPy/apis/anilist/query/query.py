@@ -2,9 +2,9 @@
 This module contains the Query class which represents a query in the AniLink API.
 """
 
-from src.AniLinkPy.apis.anilist.custom import CustomRequest
-from src.AniLinkPy.apis.anilist.query.page.page import Page
-from src.AniLinkPy.apis.anilist.query.user import UserQuery
+from AniLinkPy.apis.anilist.custom import CustomRequest
+from AniLinkPy.apis.anilist.query.page.page import Page
+from AniLinkPy.apis.anilist.query.user import UserQuery
 
 
 class Query:
@@ -28,7 +28,7 @@ class Query:
         self.custom_query = CustomRequest(auth_token)
         self.user_query = UserQuery(auth_token)
 
-    def custom(self, query, variables):
+    def custom(self, query, variables) -> dict:
         """
         This method is used to send a custom query.
 
@@ -41,7 +41,7 @@ class Query:
         """
         return self.custom_query.custom(query, variables)
 
-    def user(self, variables):
+    def user(self, variables) -> dict:
         """
         This method is used to get a user.
 

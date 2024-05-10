@@ -2,8 +2,8 @@
 This module contains the AniList class which represents the AniList API.
 """
 
-from src.AniLinkPy.apis.anilist.mutation.mutation import Mutation
-from src.AniLinkPy.apis.anilist.query.query import Query
+from AniLinkPy.apis.anilist.mutation.mutation import Mutation
+from AniLinkPy.apis.anilist.query.query import Query
 
 
 # pylint: disable=too-few-public-methods

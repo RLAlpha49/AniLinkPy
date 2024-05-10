@@ -1,16 +1,15 @@
 [project]
 name = "AniLinkPy"
-version = "1.0.0"
+version = "1.0.2"
 description = "API wrapper for AniManga sites such as Anilist, MyAnimeList, Kitsu."
 authors = [{ name = "RLAlpha49", email = "alexpettigrew29@gmail.com"}]
 readme = "README.md"
-requires-python = ">3.8.1"
+requires-python = ">3.9"
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "Intended Audience :: Developers",
     "License :: OSI Approved :: MIT License",
     "Programming Language :: Python :: 3",
-    "Programming Language :: Python :: 3.8.1",
     "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
@@ -21,19 +20,20 @@ classifiers = [
 
 [tool.poetry]
 name = "AniLinkPy"
-version = "1.0.0"
+version = "1.0.2"
 description = "API wrapper for AniManga sites such as Anilist, MyAnimeList, Kitsu."
 authors = ["RLAlpha49"]
 readme = "README.md"
 license = "MIT"
-packages = [{ include = "src/AniLinkPy/**/*" }]
+packages = [{ include = "AniLinkPy/**/*" }]
 
 [tool.poetry.dependencies]
-python = "^3.8.1"
+python = "^3.9"
 requests = "*"
 
 [tool.poetry.dev-dependencies]
 python-dotenv = "*"
+twine = "^5.0.0"
 isort = "^5.13.2"
 black = "^24.4.2"
 pylint = "^3.1.0"
@@ -46,6 +46,9 @@ mkdocs-git-revision-date-localized-plugin = "^1.2.5"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+build = "build:main"
 
 [tool.isort]
 profile = "black"

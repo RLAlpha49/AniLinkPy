@@ -8,7 +8,7 @@ class Mutation:
     This class represents a Mutation in the AniLink API.
     """
 
-    def updateuser(self, variables):
+    def updateuser(self, variables) -> None:
         """
         This method is used to update a user.
 

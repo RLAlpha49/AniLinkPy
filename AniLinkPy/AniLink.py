@@ -3,7 +3,7 @@ This module contains the AniLink class which represents the AniLink API.
 """
 
 # pylint: disable=invalid-name
-from src.AniLinkPy.apis.anilist.anilist import AniList
+from AniLinkPy.apis.anilist.anilist import AniList
 
 
 # pylint: disable=too-few-public-methods
