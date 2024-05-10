@@ -1,10 +1,3 @@
-from ..cover_image_schema import CoverImageSchema
-from ..image_schema import ImageSchema
-from ..name_schema import NameSchema
-from ..tag_schema import TagSchema
-from ..title_schema import TitleSchema
-from ..user_stats_schema import UserAnimeStatsSchema, UserMangaStatsSchema
-
 """
 This is the UserSchema for the Anilist API. It defines the structure of the user data that is expected to be
 returned from the API.
@@ -33,6 +26,17 @@ Attributes:
     updatedAt (int): The timestamp of when the user was last updated.
     previousNames (list): The user's previous names.
 """
+
+from src.AniLinkPy.apis.anilist.schemas.cover_image_schema import COVERIMAGESCHEMA
+from src.AniLinkPy.apis.anilist.schemas.image_schema import IMAGESCHEMA
+from src.AniLinkPy.apis.anilist.schemas.name_schema import NAMESCHEMA
+from src.AniLinkPy.apis.anilist.schemas.tag_schema import TAGSCHEMA
+from src.AniLinkPy.apis.anilist.schemas.title_schema import TITLESCHEMA
+from src.AniLinkPy.apis.anilist.schemas.user_stats_schema import (
+    USERANIMESTATSSCHEMA,
+    USERMANGASTATSSCHEMA,
+)
+
 UserSchema = f"""
   id
   name
@@ -87,24 +91,24 @@ UserSchema = f"""
       edges {{
         node {{
           id
-          {TitleSchema}
+          {TITLESCHEMA}
         }}
       }}
       nodes {{
         id
-        {TitleSchema}
+        {TITLESCHEMA}
       }}
     }}
     manga (perPage: 50) {{
       edges {{
         node {{
         id
-        {TitleSchema}
+        {TITLESCHEMA}
         }}
       }}
       nodes {{
         id
-        {TitleSchema}
+        {TITLESCHEMA}
       }}
     }}
     characters (perPage: 50) {{
@@ -114,19 +118,19 @@ UserSchema = f"""
         name
         voiceActors {{
           id
-          {NameSchema}
-          {ImageSchema}
+          {NAMESCHEMA}
+          {IMAGESCHEMA}
         }}
         media {{
           id
-          {TitleSchema}
-          {CoverImageSchema}
+          {TITLESCHEMA}
+          {COVERIMAGESCHEMA}
         }}
         favouriteOrder
         node {{
           id
-          {NameSchema}
-          {ImageSchema}
+          {NAMESCHEMA}
+          {IMAGESCHEMA}
         }}
       }}
     }}
@@ -137,8 +141,8 @@ UserSchema = f"""
         favouriteOrder
         node {{
           id
-          {NameSchema}
-          {ImageSchema}
+          {NAMESCHEMA}
+          {IMAGESCHEMA}
         }}
       }}
     }}
@@ -164,60 +168,60 @@ UserSchema = f"""
       minutesWatched
       episodesWatched
       formats (limit: $animeStatLimit, sort: $animeStatSort) {{
-        {UserAnimeStatsSchema}
+        {USERANIMESTATSSCHEMA}
         format
       }}
       statuses (limit: $animeStatLimit, sort: $animeStatSort) {{
-        {UserAnimeStatsSchema}
+        {USERANIMESTATSSCHEMA}
         status
       }}
       scores (limit: $animeStatLimit, sort: $animeStatSort) {{
-        {UserAnimeStatsSchema}
+        {USERANIMESTATSSCHEMA}
         score
       }}
       lengths (limit: $animeStatLimit, sort: $animeStatSort) {{
-        {UserAnimeStatsSchema}
+        {USERANIMESTATSSCHEMA}
         length
       }}
       releaseYears (limit: $animeStatLimit, sort: $animeStatSort) {{
-        {UserAnimeStatsSchema}
+        {USERANIMESTATSSCHEMA}
         releaseYear
       }}
       startYears (limit: $animeStatLimit, sort: $animeStatSort) {{
-        {UserAnimeStatsSchema}
+        {USERANIMESTATSSCHEMA}
         startYear
       }}
       genres (limit: $animeStatLimit, sort: $animeStatSort) {{
-        {UserAnimeStatsSchema}
+        {USERANIMESTATSSCHEMA}
         genre
       }}
       tags (limit: $animeStatLimit, sort: $animeStatSort) {{
-        {UserAnimeStatsSchema}
+        {USERANIMESTATSSCHEMA}
         tag {{
-          {TagSchema}
+          {TAGSCHEMA}
         }}
       }}
       countries (limit: $animeStatLimit, sort: $animeStatSort) {{
-        {UserAnimeStatsSchema}
+        {USERANIMESTATSSCHEMA}
         country
       }}
       voiceActors (limit: $animeStatLimit, sort: $animeStatSort) {{
-        {UserAnimeStatsSchema}
+        {USERANIMESTATSSCHEMA}
         voiceActor {{
           id
-          {NameSchema}
+          {NAMESCHEMA}
         }}
         characterIds
       }}
       staff (limit: $animeStatLimit, sort: $animeStatSort) {{
-        {UserAnimeStatsSchema}
+        {USERANIMESTATSSCHEMA}
         staff {{
           id
-          {NameSchema}
+          {NAMESCHEMA}
         }}
       }}
       studios (limit: $animeStatLimit, sort: $animeStatSort) {{
-        {UserAnimeStatsSchema}
+        {USERANIMESTATSSCHEMA}
         studio {{
           id
           name
@@ -231,52 +235,52 @@ UserSchema = f"""
       chaptersRead
       volumesRead
       formats (limit: $mangaStatLimit, sort: $mangaStatSort) {{
-        {UserMangaStatsSchema}
+        {USERMANGASTATSSCHEMA}
         format
       }}
       statuses (limit: $mangaStatLimit, sort: $mangaStatSort) {{
-        {UserMangaStatsSchema}
+        {USERMANGASTATSSCHEMA}
         status
       }}
       scores (limit: $mangaStatLimit, sort: $mangaStatSort) {{
-        {UserMangaStatsSchema}
+        {USERMANGASTATSSCHEMA}
         score
       }}
       lengths (limit: $mangaStatLimit, sort: $mangaStatSort) {{
-        {UserMangaStatsSchema}
+        {USERMANGASTATSSCHEMA}
         length
       }}
       releaseYears (limit: $mangaStatLimit, sort: $mangaStatSort) {{
-        {UserMangaStatsSchema}
+        {USERMANGASTATSSCHEMA}
         releaseYear
       }}
       startYears (limit: $mangaStatLimit, sort: $mangaStatSort) {{
-        {UserMangaStatsSchema}
+        {USERMANGASTATSSCHEMA}
         startYear
       }}
       genres (limit: $mangaStatLimit, sort: $mangaStatSort) {{
-        {UserMangaStatsSchema}
+        {USERMANGASTATSSCHEMA}
         genre
       }}
       tags (limit: $mangaStatLimit, sort: $mangaStatSort) {{
-        {UserMangaStatsSchema}
+        {USERMANGASTATSSCHEMA}
         tag {{
-          {TagSchema}
+          {TAGSCHEMA}
         }}
       }}
       countries (limit: $mangaStatLimit, sort: $mangaStatSort) {{
-        {UserMangaStatsSchema}
+        {USERMANGASTATSSCHEMA}
         country
       }}
       staff (limit: $mangaStatLimit, sort: $mangaStatSort) {{
-        {UserMangaStatsSchema}
+        {USERMANGASTATSSCHEMA}
         staff {{
           id
-          {NameSchema}
+          {NAMESCHEMA}
         }}
       }}
       studios (limit: $mangaStatLimit, sort: $mangaStatSort) {{
-        {UserMangaStatsSchema}
+        {USERMANGASTATSSCHEMA}
         studio {{
           id
           name
@@ -330,7 +334,7 @@ UserSchema = f"""
     }}
     favouredTags {{
       tag {{
-        {TagSchema}
+        {TAGSCHEMA}
       }}
       amount
       meanScore
@@ -339,7 +343,7 @@ UserSchema = f"""
     favouredActors {{
       staff {{
         id
-        {NameSchema}
+        {NAMESCHEMA}
       }}
       amount
       meanScore
@@ -348,7 +352,7 @@ UserSchema = f"""
     favouredStaff {{
       staff {{
         id
-        {NameSchema}
+        {NAMESCHEMA}
       }}
       amount
       meanScore

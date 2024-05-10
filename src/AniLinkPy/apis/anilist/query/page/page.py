@@ -1,3 +1,8 @@
+"""
+This module contains the Page class which represents a page in the AniLink API.
+"""
+
+
 class Page:
     """
     This class represents a Page in the AniLink API.
@@ -13,4 +18,3 @@ class Page:
         Returns:
             None: This method is not yet implemented.
         """
-        pass  # Implement the method

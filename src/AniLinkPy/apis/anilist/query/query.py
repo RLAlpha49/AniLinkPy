@@ -1,3 +1,7 @@
+"""
+This module contains the Query class which represents a query in the AniLink API.
+"""
+
 from src.AniLinkPy.apis.anilist.custom import CustomRequest
 from src.AniLinkPy.apis.anilist.query.page.page import Page
 from src.AniLinkPy.apis.anilist.query.user import UserQuery

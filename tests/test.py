@@ -2,7 +2,6 @@ import os
 import unittest
 
 from dotenv import load_dotenv
-
 from src.AniLinkPy import AniLink
 
 

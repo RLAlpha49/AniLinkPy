@@ -9,7 +9,7 @@ Attributes:
     native (str): The user's name in their native language.
 """
 
-NameSchema = """
+NAMESCHEMA = """
 name {
 first
 last

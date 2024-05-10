@@ -1,7 +1,12 @@
+"""
+This module contains the send_request function which is used to send HTTP requests.
+"""
+
+# pylint: disable=invalid-name
 import requests
 
 
-def send_request(url, method, data=None, token=None):
+def send_request(url, method, data=None, token=None, timeout=15):
     """
     This function sends a request to the specified URL.
 
@@ -10,6 +15,7 @@ def send_request(url, method, data=None, token=None):
         method (str): The HTTP method to use for the request. Supports 'GET' and 'POST'.
         data (dict, optional): The data to include in the request. Defaults to None.
         token (str, optional): The authentication token. Defaults to None.
+        timeout (int, optional): The number of seconds the client will wait for the server to send a response.
 
     Raises:
         ValueError: If an unsupported method is provided.
@@ -23,9 +29,9 @@ def send_request(url, method, data=None, token=None):
         headers["Authorization"] = f"Bearer {token}"
 
     if method.upper() == "GET":
-        response = requests.get(url, headers=headers, params=data)
+        response = requests.get(url, headers=headers, params=data, timeout=timeout)
     elif method.upper() == "POST":
-        response = requests.post(url, headers=headers, json=data)
+        response = requests.post(url, headers=headers, json=data, timeout=timeout)
     else:
         raise ValueError(f"Unsupported method: {method}")
 

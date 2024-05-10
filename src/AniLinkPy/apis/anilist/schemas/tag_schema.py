@@ -14,7 +14,7 @@ Attributes:
     userId (int): The user's ID.
 """
 
-TagSchema = """
+TAGSCHEMA = """
 id
 name
 description

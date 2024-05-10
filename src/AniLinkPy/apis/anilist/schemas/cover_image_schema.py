@@ -8,7 +8,7 @@ Attributes:
     medium (str): The URL of the medium cover image.
 """
 
-CoverImageSchema = """
+COVERIMAGESCHEMA = """
 coverImage {
   extraLarge
   large

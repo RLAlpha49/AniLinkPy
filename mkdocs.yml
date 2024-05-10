@@ -28,8 +28,10 @@ nav:
       - APIs:
           - AniList:
               - Base: autogen/anilist/anilist.md
+              - Schemas: autogen/anilist/schemas.md
               - Query:
                   - Base: autogen/anilist/query.md
+                  - Schemas: autogen/anilist/queries/schemas.md
                   - Queries:
                       - Page:
                           - Base: autogen/anilist/page.md

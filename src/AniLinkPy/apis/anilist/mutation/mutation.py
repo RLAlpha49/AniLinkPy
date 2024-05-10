@@ -1,3 +1,8 @@
+"""
+This module contains the Mutation class which represents a mutation in the AniLink API.
+"""
+
+
 class Mutation:
     """
     This class represents a Mutation in the AniLink API.
@@ -13,4 +18,3 @@ class Mutation:
         Returns:
             None: This method is not yet implemented.
         """
-        pass  # Implement the method

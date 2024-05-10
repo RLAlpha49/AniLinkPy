@@ -7,7 +7,7 @@ Attributes:
     medium (str): The URL of the medium image.
 """
 
-ImageSchema = """
+IMAGESCHEMA = """
 image {
   large
   medium

@@ -9,7 +9,7 @@ Attributes:
     mediaIds (list): The list of IDs of the anime the user has watched.
 """
 
-UserAnimeStatsSchema = """
+USERANIMESTATSSCHEMA = """
 count
 meanScore
 minutesWatched
@@ -26,7 +26,7 @@ Attributes:
     chaptersRead (int): The total chapters the user has read in manga.
     mediaIds (list): The list of IDs of the manga the user has read.
 """
-UserMangaStatsSchema = """
+USERMANGASTATSSCHEMA = """
 count
 meanScore
 chaptersRead

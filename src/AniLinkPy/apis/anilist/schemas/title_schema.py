@@ -9,7 +9,7 @@ Attributes:
     userPreferred (str): The user's preferred title.
 """
 
-TitleSchema = """
+TITLESCHEMA = """
 title {
   romaji
   english
