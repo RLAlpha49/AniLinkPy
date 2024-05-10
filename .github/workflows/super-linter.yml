@@ -25,4 +25,4 @@ jobs:
           DEFAULT_BRANCH: "master"
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VALIDATE_CHECKOV: false
-          VALIDATE_PYLINT: false
+          VALIDATE_PYTHON_PYLINT: false
