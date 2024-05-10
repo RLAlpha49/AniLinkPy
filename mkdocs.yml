@@ -43,7 +43,7 @@ nav:
                       - Update User: autogen/anilist/mutations/updateUser.md
           - MyAnimeList: autogen/mal.md
           - Kitsu: autogen/kitsu.md
-      - Base: autogen/base.md
+      - Other: autogen/base.md
 
 theme:
   name: material
