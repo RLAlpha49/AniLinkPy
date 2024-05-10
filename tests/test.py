@@ -1,8 +1,8 @@
 import os
 import unittest
 
-from dotenv import load_dotenv
 from AniLinkPy import AniLink
+from dotenv import load_dotenv
 
 
 class TestUserQuery(unittest.TestCase):
