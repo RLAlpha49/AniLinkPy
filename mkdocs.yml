@@ -8,7 +8,6 @@ plugins:
   - mkdocstrings:
       handlers:
         python:
-          paths: [AniLinkPy]
           options:
             docstring_style: google
             docstring_section_style: spacy
