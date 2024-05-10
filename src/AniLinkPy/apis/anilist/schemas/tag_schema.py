@@ -1,5 +1,6 @@
 """
-This is the TagSchema for the Anilist API. It defines the structure of the tag data that is expected to be returned from the API.
+This is the TagSchema for the Anilist API. It defines the structure of the tag data that is expected to be
+returned from the API.
 
 Attributes:
     id (int): The tag's ID.

@@ -6,7 +6,8 @@ from ..title_schema import TitleSchema
 from ..user_stats_schema import UserAnimeStatsSchema, UserMangaStatsSchema
 
 """
-This is the UserSchema for the Anilist API. It defines the structure of the user data that is expected to be returned from the API.
+This is the UserSchema for the Anilist API. It defines the structure of the user data that is expected to be
+returned from the API.
 
 Attributes:
     id (int): The user's ID.
