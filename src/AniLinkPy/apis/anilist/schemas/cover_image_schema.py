@@ -6,6 +6,7 @@ Attributes:
     large (str): The URL of the large cover image.
     medium (str): The URL of the medium cover image.
 """
+
 CoverImageSchema = """
 coverImage {
   extraLarge

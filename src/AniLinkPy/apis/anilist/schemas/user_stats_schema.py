@@ -7,6 +7,7 @@ Attributes:
     minutesWatched (int): The total minutes the user has watched anime.
     mediaIds (list): The list of IDs of the anime the user has watched.
 """
+
 UserAnimeStatsSchema = """
 count
 meanScore

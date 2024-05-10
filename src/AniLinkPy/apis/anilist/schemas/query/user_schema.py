@@ -3,8 +3,7 @@ from ..image_schema import ImageSchema
 from ..name_schema import NameSchema
 from ..tag_schema import TagSchema
 from ..title_schema import TitleSchema
-from ..user_stats_schema import UserAnimeStatsSchema
-from ..user_stats_schema import UserMangaStatsSchema
+from ..user_stats_schema import UserAnimeStatsSchema, UserMangaStatsSchema
 
 """
 This is the UserSchema for the Anilist API. It defines the structure of the user data that is expected to be returned from the API.

@@ -26,30 +26,20 @@ description = "API wrapper for AniManga sites such as Anilist, MyAnimeList, Kits
 authors = ["RLAlpha49"]
 readme = "README.md"
 license = "MIT"
-packages = [{ include = "anilinkpy" }]
-
-[tool.poetry.group.documentation]
-optional = true
-
-[tool.poetry.group.cleaning]
-optional = true
+packages = [{ include = "src/AniLinkPy/**/*" }]
 
 [tool.poetry.dependencies]
 python = "^3.8"
 requests = "*"
 
-[tool.poetry.group.documentation.dependencies]
-mkdocs = "1.5.*"
-mkdocs-material = "9.5.*"
-mkdocstrings = { version = "0.24.*", extras = ['python'] }
-mkdocs-git-revision-date-localized-plugin = "*"
-
 [tool.poetry.dev-dependencies]
 python-dotenv = "*"
-
-[tool.poetry.group.cleaning.dependencies]
-black = "*"
-isort = "*"
+isort = "^5.13.2"
+black = "^24.4.2"
+mkdocs = "^1.6.0"
+mkdocs-material = "^9.5.21"
+mkdocstrings = {extras = ["crystal", "python"], version = "^0.25.1"}
+mkdocs-git-revision-date-localized-plugin = "^1.2.5"
 
 [build-system]
 requires = ["poetry-core"]

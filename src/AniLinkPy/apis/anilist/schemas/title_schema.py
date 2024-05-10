@@ -7,6 +7,7 @@ Attributes:
     native (str): The title in the native language.
     userPreferred (str): The user's preferred title.
 """
+
 TitleSchema = """
 title {
   romaji

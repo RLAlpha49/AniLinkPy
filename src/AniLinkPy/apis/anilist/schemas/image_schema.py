@@ -5,6 +5,7 @@ Attributes:
     large (str): The URL of the large image.
     medium (str): The URL of the medium image.
 """
+
 ImageSchema = """
 image {
   large

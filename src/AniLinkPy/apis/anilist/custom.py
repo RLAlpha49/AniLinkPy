@@ -17,7 +17,7 @@ class CustomRequest:
         Args:
             auth_token (str): The authentication token.
         """
-        self.base_url = 'https://graphql.anilist.co'
+        self.base_url = "https://graphql.anilist.co"
         self.auth_token = auth_token
 
     def custom(self, query, variables=None):
@@ -34,5 +34,5 @@ class CustomRequest:
         if variables is None:
             variables = {}
 
-        data = {'query': query, 'variables': variables}
-        return send_request(self.base_url, 'POST', data, self.auth_token)
+        data = {"query": query, "variables": variables}
+        return send_request(self.base_url, "POST", data, self.auth_token)

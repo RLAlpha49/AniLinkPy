@@ -7,6 +7,7 @@ Attributes:
     full (str): The user's full name.
     native (str): The user's name in their native language.
 """
+
 NameSchema = """
 name {
 first

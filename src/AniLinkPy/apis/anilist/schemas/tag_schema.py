@@ -12,6 +12,7 @@ Attributes:
     isAdult (bool): Whether the tag is adult.
     userId (int): The user's ID.
 """
+
 TagSchema = """
 id
 name

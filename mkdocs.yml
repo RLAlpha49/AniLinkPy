@@ -1,9 +1,47 @@
-site_name: PyMoe
+site_name: AniLinkPy
+site_description: API wrapper for AniManga sites such as Anilist, MyAnimeList, Kitsu.
+site_author: RLAlpha49
+repo_url: https://github.com/RLAlpha49/AniLinkPy
 
-site_url: https://rlalpha49.github.io/AniLinkPy
+plugins:
+  - search
+  - mkdocstrings:
+      handlers:
+        python:
+          paths: [src]
+          options:
+            docstring_style: google
+            docstring_section_style: spacy
+            merge_init_into_class: true
+            heading_level: 3
+            show_if_no_docstring: true
+            docstring_options:
+              ignore_init_summary: true
+  - git-revision-date-localized:
+      enable_creation_date: true
+      type: datetime
 
 nav:
   - Home: index.md
+  - AniLink:
+      - Base: autogen/anilink.md
+      - APIs:
+          - AniList:
+              - Base: autogen/anilist/anilist.md
+              - Query:
+                  - Base: autogen/anilist/query.md
+                  - Queries:
+                      - Page:
+                          - Base: autogen/anilist/page.md
+                          - Users: autogen/anilist/queries/page/users.md
+                      - User: autogen/anilist/queries/user.md
+              - Mutation:
+                  - Base: autogen/anilist/mutation.md
+                  - Mutations:
+                      - Update User: autogen/anilist/mutations/updateUser.md
+          - MyAnimeList: autogen/mal.md
+          - Kitsu: autogen/kitsu.md
+      - Base: autogen/base.md
 
 theme:
   name: material
@@ -18,12 +56,10 @@ theme:
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
-      primary: deep purple
     - scheme: slate
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
-      primary: blue grey
   features:
     - search
     - search.suggest
@@ -37,46 +73,5 @@ theme:
     - content.action.view
 
 markdown_extensions:
-  - admonition
-  - attr_list
-  - tables
-  - pymdownx.highlight:
-      anchor_linenums: true
-      line_spans: __span
-      pygments_lang_class: true
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
   - pymdownx.superfences
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
-  - md_in_html
-
-plugins:
-  - search
-  - mkdocstrings:
-      handlers:
-        python:
-          paths: [src/AniLinkPy]
-          options:
-            docstring_style: sphinx
-            docstring_section_style: spacy
-            merge_init_into_class: true
-            heading_level: 3
-            show_if_no_docstring: true
-            docstring_options:
-              ignore_init_summary: true
-  - git-revision-date-localized:
-      enable_creation_date: true
-      type: datetime
-
-repo_url: https://github.com/RLAlpha49/AniLinkPy
-
-repo_name: RLAlpha49/AniLinkPy
-
-copyright: Copyright &copy; 2024 RLAlpha49 under the MIT License
-
-extra:
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/RLAlpha49
+  - pymdownx.inlinehilite
