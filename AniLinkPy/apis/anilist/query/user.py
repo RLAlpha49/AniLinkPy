@@ -1,7 +1,3 @@
-"""
-This module contains the UserQuery class which represents a user query in the AniLink API.
-"""
-
 from AniLinkPy.apis.anilist.schemas.query.user_schema import UserSchema
 from AniLinkPy.base.RequestHandler import send_request
 

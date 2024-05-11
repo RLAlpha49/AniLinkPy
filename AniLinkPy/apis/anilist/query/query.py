@@ -1,7 +1,3 @@
-"""
-This module contains the Query class which represents a query in the AniLink API.
-"""
-
 from AniLinkPy.apis.anilist.custom import CustomRequest
 from AniLinkPy.apis.anilist.query.page.page import Page
 from AniLinkPy.apis.anilist.query.user import UserQuery

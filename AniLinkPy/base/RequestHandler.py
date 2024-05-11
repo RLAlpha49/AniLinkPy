@@ -1,7 +1,3 @@
-"""
-This module contains the send_request function which is used to send HTTP requests.
-"""
-
 # pylint: disable=invalid-name
 import requests
 

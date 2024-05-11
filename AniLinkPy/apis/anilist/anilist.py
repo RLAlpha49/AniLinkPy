@@ -1,7 +1,3 @@
-"""
-This module contains the AniList class which represents the AniList API.
-"""
-
 from AniLinkPy.apis.anilist.mutation.mutation import Mutation
 from AniLinkPy.apis.anilist.query.query import Query
 

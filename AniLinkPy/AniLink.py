@@ -1,7 +1,3 @@
-"""
-This module contains the AniLink class which represents the AniLink API.
-"""
-
 # pylint: disable=invalid-name
 from AniLinkPy.apis.anilist.anilist import AniList
 

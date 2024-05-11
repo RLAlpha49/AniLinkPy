@@ -62,4 +62,4 @@ max-line-length = 120
 
 [tool.pylint]
 max-line-length = 120
-disable = "too-few-public-methods"
+disable = "too-few-public-methods,missing-module-docstring"

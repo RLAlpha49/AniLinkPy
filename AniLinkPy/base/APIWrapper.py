@@ -1,8 +1,3 @@
-"""
-This module contains the APIWrapper class which represents a wrapper for the API.
-"""
-
-
 # pylint: disable=invalid-name
 class APIWrapper:
     """

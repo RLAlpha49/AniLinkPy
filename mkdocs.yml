@@ -47,6 +47,7 @@ nav:
                   - Base: autogen/anilist/mutation.md
                   - Mutations:
                       - Update User: autogen/anilist/mutations/updateUser.md
+              - Custom: autogen/anilist/custom.md
           - MyAnimeList: autogen/mal.md
           - Kitsu: autogen/kitsu.md
       - Other: autogen/base.md

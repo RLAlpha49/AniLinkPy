@@ -1,7 +1,3 @@
-"""
-This module contains the CustomRequest class which represents a custom request in the AniLink API.
-"""
-
 from AniLinkPy.base.RequestHandler import send_request
 
 
