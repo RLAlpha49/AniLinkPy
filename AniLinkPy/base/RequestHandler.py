@@ -1,6 +1,8 @@
 # pylint: disable=invalid-name
 import requests
 
+from AniLinkPy.exceptions import RequestError, UnsupportedMethodError
+
 
 def send_request(url, method, data=None, token=None, timeout=15) -> dict:
     """
@@ -14,7 +16,8 @@ def send_request(url, method, data=None, token=None, timeout=15) -> dict:
         timeout (int, optional): The number of seconds the client will wait for the server to send a response.
 
     Raises:
-        ValueError: If an unsupported method is provided.
+        UnsupportedMethodError: If an unsupported method is provided.
+        RequestError: If there is an error in the request response.
 
     Returns:
         dict: The JSON response from the request.
@@ -24,13 +27,17 @@ def send_request(url, method, data=None, token=None, timeout=15) -> dict:
     if token:
         headers["Authorization"] = f"Bearer {token}"
 
+    if method.upper() not in ["GET", "POST"]:
+        raise UnsupportedMethodError(method)
+
+    response = None
+
     if method.upper() == "GET":
         response = requests.get(url, headers=headers, params=data, timeout=timeout)
     elif method.upper() == "POST":
         response = requests.post(url, headers=headers, json=data, timeout=timeout)
-    else:
-        raise ValueError(f"Unsupported method: {method}")
 
-    response.raise_for_status()
+    if response and "errors" in response.json():
+        raise RequestError(response.json()["errors"])
 
     return response.json()

@@ -4,11 +4,43 @@ site_description: API wrapper for AniManga sites such as Anilist, MyAnimeList, K
 site_author: RLAlpha49
 repo_url: https://github.com/RLAlpha49/AniLinkPy
 repo_name: RLAlpha49/AniLinkPy
-copyright: Copyright &copy; 2024 RLAlpha49 under the MIT License
+copyright: >
+  Copyright &copy; 2024 RLAlpha49 under the MIT License –
+  <a href="#__consent">Change cookie settings</a>
 extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/RLAlpha49
+    - icon: fontawesome/brands/discord
+      link: https://discordapp.com/users/251479989378220044
+  analytics:
+    provider: google
+    property: G-2N7PLXVPT4
+    feedback:
+      title: Was this page helpful?
+      ratings:
+        - icon: material/emoticon-happy-outline
+          name: This page was helpful
+          data: 1
+          note: >-
+            Thanks for your feedback!
+        - icon: material/emoticon-sad-outline
+          name: This page could be improved
+          data: 0
+          note: >-
+            Thanks for your feedback! Help us improve this page by
+            using our <a href="..." target="_blank" rel="noopener">feedback form</a>.
+  consent:
+    title: Cookie consent
+    actions:
+      - accept
+      - reject
+      - manage
+    description: >-
+      We use cookies to recognize your repeated visits and preferences, as well
+      as to measure the effectiveness of our documentation and whether users
+      find what they're searching for. With your consent, you're helping us to
+      make our documentation better.
 
 plugins:
   - search
@@ -21,36 +53,46 @@ plugins:
             merge_init_into_class: true
             heading_level: 3
             show_if_no_docstring: true
+            show_root_toc_entry: false
+            show_symbol_type_heading: true
+            show_signatures: true
+            show_signature_annotations: true
+            signature_crossrefs: true
+            separate_signature: true
             docstring_options:
               ignore_init_summary: true
   - git-revision-date-localized:
       enable_creation_date: true
       type: datetime
+  - git-committers:
+      repository: RLAlpha49/AniLinkPy
+      branch: master
 
 nav:
   - Home: index.md
   - AniLink:
-      - Base: autogen/anilink.md
+      - AniLink/index.md
       - APIs:
           - AniList:
-              - Base: autogen/anilist/anilist.md
-              - Schemas: autogen/anilist/schemas.md
+              - AniLink/AniList/index.md
+              - Schemas: AniLink/AniList/schemas.md
               - Query:
-                  - Base: autogen/anilist/query.md
-                  - Schemas: autogen/anilist/queries/schemas.md
+                  - AniLink/AniList/Query/index.md
+                  - Schemas: AniLink/AniList/Queries/schemas.md
                   - Queries:
                       - Page:
-                          - Base: autogen/anilist/page.md
-                          - Users: autogen/anilist/queries/page/users.md
-                      - User: autogen/anilist/queries/user.md
+                          - AniLink/AniList/Queries/Page/index.md
+                          - Users: AniLink/AniList/Queries/Page/users.md
+                      - User: AniLink/AniList/Queries/user.md
               - Mutation:
-                  - Base: autogen/anilist/mutation.md
+                  - AniLink/AniList/Mutations/index.md
                   - Mutations:
-                      - Update User: autogen/anilist/mutations/updateUser.md
-              - Custom: autogen/anilist/custom.md
-          - MyAnimeList: autogen/mal.md
-          - Kitsu: autogen/kitsu.md
-      - Other: autogen/base.md
+                      - Update User: AniLink/AniList/Mutations/updateUser.md
+              - Custom: AniLink/AniList/custom.md
+          - MyAnimeList: AniLink/mal.md
+          - Kitsu: AniLink/kitsu.md
+      - Base: AniLink/base.md
+      - Exceptions: AniLink/exceptions.md
 
 theme:
   name: material
@@ -58,7 +100,8 @@ theme:
     text: Fira Sans
     code: Fira Code
   icon:
-    repo: fontawesome/brands/github
+    repo: fontawesome/brands/git-alt
+    edit: material/pencil
     view: material/eye
   palette:
     - scheme: default
@@ -75,24 +118,38 @@ theme:
     - search.highlight
     - search.share
     - navigation.instant
+    - navigation.instant.prefetch
     - navigation.instant.progress
+    - navigation.instant.preview
     - navigation.tracking
-    - toc.integrate
     - navigation.top
+    - navigation.path
+    - navigation.prune
+    - navigation.indexes
     - content.action.view
+    - content.tooltips
+    - toc.follow
 
 markdown_extensions:
+  - abbr
   - admonition
   - attr_list
+  - toc:
+      permalink: true
+      permalink_title: Anchor link to this section for reference
   - tables
+  - pymdownx.betterem
+  - pymdownx.details
+  - pymdownx.emoji:
+        emoji_index: !!python/name:material.extensions.emoji.twemoji
+        emoji_generator: !!python/name:material.extensions.emoji.to_svg
   - pymdownx.highlight:
       anchor_linenums: true
       line_spans: __span
       pygments_lang_class: true
   - pymdownx.inlinehilite
-  - pymdownx.snippets
   - pymdownx.superfences
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.smartsymbols
+  - pymdownx.snippets
+  - pymdownx.tabbed
   - md_in_html

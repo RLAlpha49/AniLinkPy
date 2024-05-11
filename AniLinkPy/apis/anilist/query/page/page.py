@@ -1,5 +1,5 @@
 """
-This module contains the Page class which represents a page in the AniLink API.
+This module contains the Page class which represents a Page in the AniLink API.
 """
 
 

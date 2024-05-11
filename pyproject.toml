@@ -42,13 +42,15 @@ mkdocs = "^1.6.0"
 mkdocs-material = "^9.5.21"
 mkdocstrings = {extras = ["crystal", "python"], version = "^0.25.1"}
 mkdocs-git-revision-date-localized-plugin = "^1.2.5"
+mkdocs-git-committers-plugin-2 = "^2.3.0"
 
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-build = "build:main"
+build = "scripts:build"
+clean = "scripts:clean"
 
 [tool.isort]
 profile = "black"

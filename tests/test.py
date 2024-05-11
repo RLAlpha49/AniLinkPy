@@ -13,7 +13,7 @@ class TestUserQuery(unittest.TestCase):
 
     def test_custom(self):
         query = """
-        query ($id: Int) {
+        Query ($id: Int) {
             User (id: $id) {
                 id
                 name

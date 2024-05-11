@@ -4,7 +4,7 @@ from AniLinkPy.base.RequestHandler import send_request
 
 class UserQuery:
     """
-    This class represents a user query in the AniLink API.
+    This class represents a user Query in the AniLink API.
 
     Attributes:
         base_url (str): The base URL for the AniLink API.
@@ -23,22 +23,22 @@ class UserQuery:
 
     def user(self, variables) -> dict:
         """
-        This method is used to send a user query.
+        This method is used to send a user Query.
 
         Args:
-            variables (dict): The variables for the query.
+            variables (dict): The variables for the Query.
 
         Raises:
             ValueError: If no variables are provided.
 
         Returns:
-            dict: The response from the user query.
+            dict: The response from the user Query.
         """
         if not variables:
             raise ValueError("At least one variable must be provided")
 
         query = f"""
-            query ($id: Int, $name: String, $isModerator: Boolean, $search: String, $sort: [UserSort],
+            Query ($id: Int, $name: String, $isModerator: Boolean, $search: String, $sort: [UserSort],
                 $asHtml: Boolean, $animeStatLimit: Int, $mangaStatLimit: Int, $animeStatSort: [UserStatisticsSort],
                 $mangaStatSort: [UserStatisticsSort]) {{ User (id: $id, name: $name, isModerator: $isModerator,
                 search: $search, sort: $sort) {{ {UserSchema}
@@ -46,5 +46,5 @@ class UserQuery:
             }}
         """
 
-        data = {"query": query, "variables": variables}
+        data = {"Query": query, "variables": variables}
         return send_request(self.base_url, "POST", data, self.auth_token)

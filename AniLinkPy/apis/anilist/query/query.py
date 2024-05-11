@@ -26,14 +26,14 @@ class Query:
 
     def custom(self, query, variables) -> dict:
         """
-        This method is used to send a custom query.
+        This method is used to send a custom Query.
 
         Args:
-            query (str): The query string.
-            variables (dict): The variables for the query.
+            query (str): The Query string.
+            variables (dict): The variables for the Query.
 
         Returns:
-            dict: The response from the custom query.
+            dict: The response from the custom Query.
         """
         return self.custom_query.custom(query, variables)
 
@@ -42,9 +42,9 @@ class Query:
         This method is used to get a user.
 
         Args:
-            variables (dict): The variables for the query.
+            variables (dict): The variables for the Query.
 
         Returns:
-            dict: The response from the user query.
+            dict: The response from the user Query.
         """
         return self.user_query.user(variables)

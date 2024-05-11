@@ -20,19 +20,19 @@ class CustomRequest:
         self.base_url = "https://graphql.anilist.co"
         self.auth_token = auth_token
 
-    def custom(self, query, variables=None):
+    def custom(self, query, variables=None) -> dict:
         """
-        This method is used to send a custom query.
+        This method is used to send a custom Query.
 
         Args:
-            query (str): The query string.
-            variables (dict, optional): The variables for the query. Defaults to None.
+            query (str): The Query string.
+            variables (dict, optional): The variables for the Query. Defaults to None.
 
         Returns:
-            dict: The response from the custom query.
+            dict: The response from the custom Query.
         """
         if variables is None:
             variables = {}
 
-        data = {"query": query, "variables": variables}
+        data = {"Query": query, "variables": variables}
         return send_request(self.base_url, "POST", data, self.auth_token)
