@@ -1,3 +1,3 @@
 # AniList API Documentation
 
-::: AniLinkPy.apis.anilist.anilist
+::: AniLinkPy.apis.anilist.anilist.AniList

@@ -1,3 +1,3 @@
 # Anilist Custom Request Documentation
 
-::: AniLinkPy.apis.anilist.custom
+::: AniLinkPy.apis.anilist.custom.CustomRequest

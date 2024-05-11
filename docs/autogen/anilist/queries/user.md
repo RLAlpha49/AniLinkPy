@@ -1,3 +1,3 @@
 # User Query Documentation
 
-::: AniLinkPy.apis.anilist.query.user
+::: AniLinkPy.apis.anilist.query.user.UserQuery

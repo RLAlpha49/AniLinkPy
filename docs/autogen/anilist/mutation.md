@@ -1,3 +1,3 @@
 # Anilist Mutation Documentation
 
-::: AniLinkPy.apis.anilist.mutation.mutation
+::: AniLinkPy.apis.anilist.mutation.mutation.Mutation

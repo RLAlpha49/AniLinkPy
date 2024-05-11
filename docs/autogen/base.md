@@ -4,8 +4,8 @@ This is the API documentation for the `APIWrapper` class and `send_request` func
 
 ## APIWrapper Class
 
-::: AniLinkPy.base.APIWrapper
+::: AniLinkPy.base.APIWrapper.APIWrapper
 
 ## send_request Function
 
-::: AniLinkPy.base.RequestHandler
+::: AniLinkPy.base.RequestHandler.send_request
