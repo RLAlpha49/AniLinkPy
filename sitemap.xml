@@ -6,52 +6,57 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://rlalpha49.github.io/AniLinkPy/autogen/anilink/</loc>
+         <loc>https://rlalpha49.github.io/AniLinkPy/AniLink/</loc>
          <lastmod>2024-05-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://rlalpha49.github.io/AniLinkPy/autogen/base/</loc>
+         <loc>https://rlalpha49.github.io/AniLinkPy/AniLink/base/</loc>
          <lastmod>2024-05-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://rlalpha49.github.io/AniLinkPy/autogen/anilist/anilist/</loc>
+         <loc>https://rlalpha49.github.io/AniLinkPy/AniLink/exceptions/</loc>
          <lastmod>2024-05-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://rlalpha49.github.io/AniLinkPy/autogen/anilist/custom/</loc>
+         <loc>https://rlalpha49.github.io/AniLinkPy/AniLink/AniList/</loc>
          <lastmod>2024-05-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://rlalpha49.github.io/AniLinkPy/autogen/anilist/mutation/</loc>
+         <loc>https://rlalpha49.github.io/AniLinkPy/AniLink/AniList/custom/</loc>
          <lastmod>2024-05-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://rlalpha49.github.io/AniLinkPy/autogen/anilist/page/</loc>
+         <loc>https://rlalpha49.github.io/AniLinkPy/AniLink/AniList/schemas/</loc>
          <lastmod>2024-05-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://rlalpha49.github.io/AniLinkPy/autogen/anilist/query/</loc>
+         <loc>https://rlalpha49.github.io/AniLinkPy/AniLink/AniList/Mutations/</loc>
          <lastmod>2024-05-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://rlalpha49.github.io/AniLinkPy/autogen/anilist/schemas/</loc>
+         <loc>https://rlalpha49.github.io/AniLinkPy/AniLink/AniList/Queries/schemas/</loc>
          <lastmod>2024-05-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://rlalpha49.github.io/AniLinkPy/autogen/anilist/queries/schemas/</loc>
+         <loc>https://rlalpha49.github.io/AniLinkPy/AniLink/AniList/Queries/user/</loc>
          <lastmod>2024-05-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
-         <loc>https://rlalpha49.github.io/AniLinkPy/autogen/anilist/queries/user/</loc>
+         <loc>https://rlalpha49.github.io/AniLinkPy/AniLink/AniList/Queries/Page/</loc>
+         <lastmod>2024-05-11</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://rlalpha49.github.io/AniLinkPy/AniLink/AniList/Query/</loc>
          <lastmod>2024-05-11</lastmod>
          <changefreq>daily</changefreq>
     </url>
