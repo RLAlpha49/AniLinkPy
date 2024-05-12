@@ -50,9 +50,7 @@ def clean():
         else:
             print("flake8 found no problems.")
     except subprocess.CalledProcessError as e:
-        print(
-            f"flake8 exited with status {e.returncode}. There might be style issues."
-        )
+        print(f"flake8 exited with status {e.returncode}. There might be style issues.")
 
     try:
         print("\nRunning pylint...")

@@ -101,6 +101,7 @@ theme:
     code: Fira Code
   icon:
     repo: fontawesome/brands/git-alt
+    annotation: material/plus-circle
     edit: material/pencil
     view: material/eye
   palette:
@@ -128,11 +129,14 @@ theme:
     - navigation.indexes
     - content.action.view
     - content.tooltips
+    - content.code.copy
+    - content.code.annotate
     - toc.follow
 
 markdown_extensions:
   - abbr
   - admonition
+  - def_list
   - attr_list
   - toc:
       permalink: true
@@ -151,5 +155,8 @@ markdown_extensions:
   - pymdownx.superfences
   - pymdownx.smartsymbols
   - pymdownx.snippets
-  - pymdownx.tabbed
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
   - md_in_html
