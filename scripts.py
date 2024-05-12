@@ -26,7 +26,7 @@ def clean():
     """
     print("Running isort...")
     result = subprocess.run(
-        ["poetry", "run", "isort", "--check", "--diff", "AniLinkPy"],
+        ["poetry", "run", "isort", "AniLinkPy"],
         capture_output=True,
         text=True,
     )
@@ -36,14 +36,31 @@ def clean():
         print("isort found no problems.")
 
     print("\nRunning black...")
-    subprocess.run(["poetry", "run", "black", "AniLinkPy"], check=True)
+    result = subprocess.run(["poetry", "run", "black", "AniLinkPy"], check=True)
+    if result.stdout:
+        print(result.stdout)
+    else:
+        print("black found no problems.")
 
-    print("\nRunning flake8...")
-    subprocess.run(["poetry", "run", "flake8", "AniLinkPy"], check=True)
+    try:
+        print("\nRunning flake8...")
+        result = subprocess.run(["poetry", "run", "flake8", "AniLinkPy"], check=True)
+        if result.stdout:
+            print(result.stdout)
+        else:
+            print("flake8 found no problems.")
+    except subprocess.CalledProcessError as e:
+        print(
+            f"flake8 exited with status {e.returncode}. There might be style issues."
+        )
 
     try:
         print("\nRunning pylint...")
-        subprocess.run(["poetry", "run", "pylint", "AniLinkPy"], check=True)
+        result = subprocess.run(["poetry", "run", "pylint", "AniLinkPy"], check=True)
+        if result.stdout:
+            print(result.stdout)
+        else:
+            print("pylint found no problems.")
     except subprocess.CalledProcessError as e:
         print(
             f"pylint exited with status {e.returncode}. There might be linting errors."
@@ -51,7 +68,7 @@ def clean():
 
     try:
         print("\nRunning mypy...")
-        subprocess.run(
+        result = subprocess.run(
             [
                 "poetry",
                 "run",
@@ -62,6 +79,10 @@ def clean():
             ],
             check=True,
         )
+        if result.stdout:
+            print(result.stdout)
+        else:
+            print("mypy found no problems.")
     except subprocess.CalledProcessError as e:
         print(
             f"mypy exited with status {e.returncode}. There might be type inconsistencies."

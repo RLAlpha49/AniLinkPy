@@ -1,6 +1,5 @@
 # pylint: disable=invalid-name
 import requests
-
 from AniLinkPy.exceptions import RequestError, UnsupportedMethodError
 
 
