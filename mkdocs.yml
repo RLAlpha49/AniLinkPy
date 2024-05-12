@@ -70,6 +70,10 @@ plugins:
 
 nav:
   - Home: index.md
+  - Installation: installation.md
+  - AniList API: AniListAPI.md
+  - MyAnimeList API: MyAnimeListAPI.md
+  - Kitsu API: KitsuAPI.md
   - AniLink:
       - AniLink/index.md
       - APIs:

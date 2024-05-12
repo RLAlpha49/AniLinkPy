@@ -34,5 +34,5 @@ class CustomRequest:
         if variables is None:
             variables = {}
 
-        data = {"Query": query, "variables": variables}
+        data = {"query": query, "variables": variables}
         return send_request(self.base_url, "POST", data, self.auth_token)

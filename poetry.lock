@@ -435,13 +435,13 @@ test = ["coverage[toml]", "ddt (>=1.1.1,!=1.4.3)", "mock", "mypy", "pre-commit",
 
 [[package]]
 name = "griffe"
-version = "0.44.0"
+version = "0.45.0"
 description = "Signatures for entire Python programs. Extract the structure, the frame, the skeleton of your project, to generate API documentation or find breaking changes in your API."
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "griffe-0.44.0-py3-none-any.whl", hash = "sha256:8a4471c469ba980b87c843f1168850ce39d0c1d0c7be140dca2480f76c8e5446"},
-    {file = "griffe-0.44.0.tar.gz", hash = "sha256:34aee1571042f9bf00529bc715de4516fb6f482b164e90d030300601009e0223"},
+    {file = "griffe-0.45.0-py3-none-any.whl", hash = "sha256:90fe5c90e1b0ca7dd6fee78f9009f4e01b37dbc9ab484a9b2c1578915db1e571"},
+    {file = "griffe-0.45.0.tar.gz", hash = "sha256:85cb2868d026ea51c89bdd589ad3ccc94abc5bd8d5d948e3d4450778a2a05b4a"},
 ]
 
 [package.dependencies]
@@ -859,13 +859,13 @@ pytz = "*"
 
 [[package]]
 name = "mkdocs-material"
-version = "9.5.21"
+version = "9.5.22"
 description = "Documentation that simply works"
 optional = false
 python-versions = ">=3.8"
 files = [
-    {file = "mkdocs_material-9.5.21-py3-none-any.whl", hash = "sha256:210e1f179682cd4be17d5c641b2f4559574b9dea2f589c3f0e7c17c5bd1959bc"},
-    {file = "mkdocs_material-9.5.21.tar.gz", hash = "sha256:049f82770f40559d3c2aa2259c562ea7257dbb4aaa9624323b5ef27b2d95a450"},
+    {file = "mkdocs_material-9.5.22-py3-none-any.whl", hash = "sha256:8c7a377d323567934e6cd46915e64dc209efceaec0dec1cf2202184f5649862c"},
+    {file = "mkdocs_material-9.5.22.tar.gz", hash = "sha256:22a853a456ae8c581c4628159574d6fc7c71b2c7569dc9c3a82cc70432219599"},
 ]
 
 [package.dependencies]
@@ -1677,4 +1677,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.9"
-content-hash = "a7b245f6a2d6e9058090611033dda6214ee7266cc4281164414824d8f7c65e06"
+content-hash = "a3bededc51e5fbc3a7348a3ff404dfc0dee35ac27406df97481256809e52f8d2"

@@ -2,6 +2,7 @@
     This script contains the functions that are used to build and clean the project.
 """
 
+import argparse
 import os
 import shutil
 import subprocess
@@ -24,11 +25,18 @@ def clean():
     """
     This function cleans the project using isort, black, flake8, pylint, and mypy.
     """
+    parser = argparse.ArgumentParser(description="Clean a Python project.")
+    parser.add_argument("path", help="The path of the project to clean.", default="AniLinkPy", nargs='?')
+    args = parser.parse_args()
+
+    path = args.path
+
     print("Running isort...")
     result = subprocess.run(
-        ["poetry", "run", "isort", "AniLinkPy"],
+        ["poetry", "run", "isort", path],
         capture_output=True,
         text=True,
+        check=True,
     )
     if result.stdout:
         print(result.stdout)
@@ -36,7 +44,7 @@ def clean():
         print("isort found no problems.")
 
     print("\nRunning black...")
-    result = subprocess.run(["poetry", "run", "black", "AniLinkPy"], check=True)
+    result = subprocess.run(["poetry", "run", "black", path], check=True)
     if result.stdout:
         print(result.stdout)
     else:
@@ -44,7 +52,7 @@ def clean():
 
     try:
         print("\nRunning flake8...")
-        result = subprocess.run(["poetry", "run", "flake8", "AniLinkPy"], check=True)
+        result = subprocess.run(["poetry", "run", "flake8", path], check=True)
         if result.stdout:
             print(result.stdout)
         else:
@@ -54,7 +62,7 @@ def clean():
 
     try:
         print("\nRunning pylint...")
-        result = subprocess.run(["poetry", "run", "pylint", "AniLinkPy"], check=True)
+        result = subprocess.run(["poetry", "run", "pylint", path], check=True)
         if result.stdout:
             print(result.stdout)
         else:
@@ -73,7 +81,7 @@ def clean():
                 "mypy",
                 "--install-types",
                 "--non-interactive",
-                "AniLinkPy",
+                path,
             ],
             check=True,
         )

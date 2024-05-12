@@ -38,7 +38,7 @@ class UserQuery:
             raise ValueError("At least one variable must be provided")
 
         query = f"""
-            Query ($id: Int, $name: String, $isModerator: Boolean, $search: String, $sort: [UserSort],
+            query ($id: Int, $name: String, $isModerator: Boolean, $search: String, $sort: [UserSort],
                 $asHtml: Boolean, $animeStatLimit: Int, $mangaStatLimit: Int, $animeStatSort: [UserStatisticsSort],
                 $mangaStatSort: [UserStatisticsSort]) {{ User (id: $id, name: $name, isModerator: $isModerator,
                 search: $search, sort: $sort) {{ {UserSchema}
@@ -46,5 +46,5 @@ class UserQuery:
             }}
         """
 
-        data = {"Query": query, "variables": variables}
+        data = {"query": query, "variables": variables}
         return send_request(self.base_url, "POST", data, self.auth_token)
