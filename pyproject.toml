@@ -57,7 +57,6 @@ clean = "scripts:clean"
 [tool.isort]
 profile = "black"
 skip_gitignore = true
-known_third_party = ["requests", "AniLinkPy.exceptions"]
 
 [tool.flake8]
 max-line-length = 120
