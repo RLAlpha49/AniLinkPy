@@ -1,3 +1,5 @@
+from typing import Optional, Union
+
 from AniLinkPy.base.RequestHandler import send_request
 
 
@@ -10,7 +12,7 @@ class CustomRequest:
         auth_token (str): The authentication token.
     """
 
-    def __init__(self, auth_token):
+    def __init__(self, auth_token: Union[str, None]) -> None:
         """
         The constructor for the CustomRequest class.
 
@@ -20,7 +22,7 @@ class CustomRequest:
         self.base_url = "https://graphql.anilist.co"
         self.auth_token = auth_token
 
-    def custom(self, query, variables=None) -> dict:
+    def custom(self, query: str, variables: Optional[dict] = None) -> dict:
         """
         This method is used to send a custom Query.
 

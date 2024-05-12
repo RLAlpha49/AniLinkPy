@@ -8,13 +8,13 @@ class Page:
     This class represents a Page in the AniLink API.
     """
 
-    def users(self, user_ids) -> None:
+    def users(self, variables: dict) -> dict:
         """
-        This method is used to get users by their IDs.
+        This method is used to get users.
 
         Args:
-            user_ids (list): A list of user IDs.
+            variables (dict): The variables for the Query.
 
         Returns:
-            None: This method is not yet implemented.
+            dict: The response from the users Query.
         """

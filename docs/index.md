@@ -79,13 +79,13 @@ def handle_rate_limit(api_call, retry_after=60):
         
         The possible error codes returned by the AniList API are:
 
-        | Status Code | Description | Example |
-        |-------------|-------------| ------- |
-        | 400         | Bad Request | Missing variables, invalid variables, or invalid query |
-        | 401         | Unauthorized | Invalid authentication token |
-        | 404         | Not Found | User not found |
-        | 429         | Too Many Requests | Rate limit exceeded |
-        | 500         | Internal Server Error | AniList server
+        | Status Code | Description           | Example                                                |
+        |-------------|-----------------------| ------------------------------------------------------ |
+        | 400         | Bad Request           | Missing variables, invalid variables, or invalid query |
+        | 401         | Unauthorized          | Invalid authentication token                           |
+        | 404         | Not Found             | User not found                                         |
+        | 429         | Too Many Requests     | Rate limit exceeded                                    |
+        | 500         | Internal Server Error | AniList server                                         |
 
 ## License
 

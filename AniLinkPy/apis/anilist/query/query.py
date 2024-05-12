@@ -1,3 +1,5 @@
+from typing import Union
+
 from AniLinkPy.apis.anilist.query.page.page import Page
 from AniLinkPy.apis.anilist.query.user import UserQuery
 
@@ -11,7 +13,7 @@ class Query:
         user_query (UserQuery): An instance of the UserQuery class.
     """
 
-    def __init__(self, auth_token):
+    def __init__(self, auth_token: Union[str, None]) -> None:
         """
         The constructor for Query class.
 
@@ -21,7 +23,7 @@ class Query:
         self.page = Page()
         self.user_query = UserQuery(auth_token)
 
-    def user(self, variables) -> dict:
+    def user(self, variables: dict) -> dict:
         """
         This method is used to get a user.
 

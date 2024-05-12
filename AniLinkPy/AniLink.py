@@ -1,4 +1,6 @@
 # pylint: disable=invalid-name
+from typing import Optional
+
 from AniLinkPy.apis.anilist.anilist import AniList
 
 
@@ -12,7 +14,7 @@ class AniLink:
         anilist (AniList): An instance of the AniList class.
     """
 
-    def __init__(self, auth_token=None):
+    def __init__(self, auth_token: Optional[str] = None) -> None:
         """
         The constructor for AniLink class.
 

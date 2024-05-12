@@ -1,9 +1,13 @@
 # pylint: disable=invalid-name
+from typing import Optional
+
 import requests
 from AniLinkPy.exceptions import RequestError, UnsupportedMethodError
 
 
-def send_request(url, method, data=None, token=None, timeout=15) -> dict:
+def send_request(
+    url: str, method: str, data: dict, token: Optional[str] = None, timeout: int = 15
+) -> dict:
     """
     This function sends a request to the specified URL.
 

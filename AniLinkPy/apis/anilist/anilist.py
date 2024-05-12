@@ -1,3 +1,5 @@
+from typing import Union
+
 from AniLinkPy.apis.anilist.custom import CustomRequest
 from AniLinkPy.apis.anilist.mutation.mutation import Mutation
 from AniLinkPy.apis.anilist.query.query import Query
@@ -14,7 +16,7 @@ class AniList:
         custom_query (CustomRequest): An instance of the CustomRequest class.
     """
 
-    def __init__(self, auth_token):
+    def __init__(self, auth_token: Union[str, None]) -> None:
         """
         The constructor for AniList class.
 
@@ -25,7 +27,7 @@ class AniList:
         self.mutation = Mutation()
         self.custom_query = CustomRequest(auth_token)
 
-    def custom(self, query, variables) -> dict:
+    def custom(self, query: str, variables: dict) -> dict:
         """
         This method is used to send a custom Query or Mutation.
 

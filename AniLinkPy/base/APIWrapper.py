@@ -7,7 +7,7 @@ class APIWrapper:
         base_url (str): The base URL for the API.
     """
 
-    def __init__(self, base_url):
+    def __init__(self, base_url: str) -> None:
         """
         The constructor for the APIWrapper class.
 

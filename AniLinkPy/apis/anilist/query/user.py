@@ -1,3 +1,5 @@
+from typing import Union
+
 from AniLinkPy.apis.anilist.schemas.query.user_schema import UserSchema
 from AniLinkPy.base.RequestHandler import send_request
 
@@ -11,7 +13,7 @@ class UserQuery:
         auth_token (str): The authentication token.
     """
 
-    def __init__(self, auth_token):
+    def __init__(self, auth_token: Union[str, None]) -> None:
         """
         The constructor for the UserQuery class.
 
@@ -21,7 +23,7 @@ class UserQuery:
         self.base_url = "https://graphql.anilist.co"
         self.auth_token = auth_token
 
-    def user(self, variables) -> dict:
+    def user(self, variables: dict) -> dict:
         """
         This method is used to send a user Query.
 
