@@ -1,6 +1,7 @@
 """
     This script contains the functions that are used to build and clean the project.
 """
+
 import os
 import shutil
 import subprocess
@@ -8,9 +9,9 @@ import subprocess
 
 def build():
     """
-        This function checks if the dist directory exists and deletes it.
-        Then, it runs the 'poetry build' command.
-        """
+    This function checks if the dist directory exists and deletes it.
+    Then, it runs the 'poetry build' command.
+    """
     try:
         if os.path.exists("dist/"):
             shutil.rmtree("dist/")
@@ -21,16 +22,26 @@ def build():
 
 def clean():
     """
-    This function cleans the project using isort, black, and pylint.
+    This function cleans the project using isort, black, pylint, and mypy.
     """
-    result = subprocess.run(["python", "-m", "isort", "--check", "--diff", "AniLinkPy"], capture_output=True, text=True)
+    print("Running isort...")
+    result = subprocess.run(["poetry", "run", "isort", "--check", "--diff", "AniLinkPy"], capture_output=True, text=True)
     if result.stdout:
         print(result.stdout)
     else:
         print("isort found no problems.")
 
-    subprocess.run(["python", "-m", "black", "AniLinkPy"], check=True)
+    print("\nRunning black...")
+    subprocess.run(["poetry", "run", "black", "AniLinkPy"], check=True)
+
     try:
-        subprocess.run(["python", "-m", "pylint", "AniLinkPy"], check=True)
+        print("\nRunning pylint...")
+        subprocess.run(["poetry", "run", "pylint", "AniLinkPy"], check=True)
     except subprocess.CalledProcessError as e:
         print(f"pylint exited with status {e.returncode}. There might be linting errors.")
+
+    try:
+        print("\nRunning mypy...")
+        subprocess.run(["poetry", "run", "mypy", "--install-types", "--non-interactive", "AniLinkPy"], check=True)
+    except subprocess.CalledProcessError as e:
+        print(f"mypy exited with status {e.returncode}. There might be type inconsistencies.")

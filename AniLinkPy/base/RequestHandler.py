@@ -37,6 +37,9 @@ def send_request(url, method, data=None, token=None, timeout=15) -> dict:
     elif method.upper() == "POST":
         response = requests.post(url, headers=headers, json=data, timeout=timeout)
 
+    if response is None or "errors" not in response.json():
+        raise RequestError("No response received or no errors in response.")
+
     if response and "errors" in response.json():
         raise RequestError(response.json()["errors"])
 
