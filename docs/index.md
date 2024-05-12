@@ -144,7 +144,7 @@ List of main query methods in `anilist.query`:
 - [ ] [thread](AniLink/AniList/Queries/thread.md)
 - [ ] [threadComment](AniLink/AniList/Queries/threadComment.md)
 - [ ] [recommendation](AniLink/AniList/Queries/recommendation.md)
-- [ ] [markdown](AniLink/AniList/Queries/markdown.md) <!-- textlint-disable-line -->
+- [ ] [markdown](AniLink/AniList/Queries/markdown.md)
 - [ ] [aniChartUser](AniLink/AniList/Queries/aniChartUser.md)
 - [ ] [siteStatistics](AniLink/AniList/Queries/siteStatistics.md)
 - [ ] [externalLinkSourceCollection](AniLink/AniList/Queries/externalLinkSourceCollection.md)
