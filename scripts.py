@@ -22,10 +22,14 @@ def build():
 
 def clean():
     """
-    This function cleans the project using isort, black, pylint, and mypy.
+    This function cleans the project using isort, black, flake8, pylint, and mypy.
     """
     print("Running isort...")
-    result = subprocess.run(["poetry", "run", "isort", "--check", "--diff", "AniLinkPy"], capture_output=True, text=True)
+    result = subprocess.run(
+        ["poetry", "run", "isort", "--check", "--diff", "AniLinkPy"],
+        capture_output=True,
+        text=True,
+    )
     if result.stdout:
         print(result.stdout)
     else:
@@ -34,14 +38,31 @@ def clean():
     print("\nRunning black...")
     subprocess.run(["poetry", "run", "black", "AniLinkPy"], check=True)
 
+    print("\nRunning flake8...")
+    subprocess.run(["poetry", "run", "flake8", "AniLinkPy"], check=True)
+
     try:
         print("\nRunning pylint...")
         subprocess.run(["poetry", "run", "pylint", "AniLinkPy"], check=True)
     except subprocess.CalledProcessError as e:
-        print(f"pylint exited with status {e.returncode}. There might be linting errors.")
+        print(
+            f"pylint exited with status {e.returncode}. There might be linting errors."
+        )
 
     try:
         print("\nRunning mypy...")
-        subprocess.run(["poetry", "run", "mypy", "--install-types", "--non-interactive", "AniLinkPy"], check=True)
+        subprocess.run(
+            [
+                "poetry",
+                "run",
+                "mypy",
+                "--install-types",
+                "--non-interactive",
+                "AniLinkPy",
+            ],
+            check=True,
+        )
     except subprocess.CalledProcessError as e:
-        print(f"mypy exited with status {e.returncode}. There might be type inconsistencies.")
+        print(
+            f"mypy exited with status {e.returncode}. There might be type inconsistencies."
+        )
