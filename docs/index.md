@@ -76,7 +76,7 @@ Installing AniLinkPy is straightforward. The recommended approach is to use a pr
 
 ### AniList
 
-To start using AniLink, you need to import it and initialize it with an optional authentication token. You can get an authentication token by registering your application on the AniList website.
+To start using AniLink, you need to import it and initialize it with an optional authentication token. You can get an authentication token by registering your application on the AniList site.
 
 !!! example "Importing & Initializing AniLink"
 
@@ -144,7 +144,7 @@ List of main query methods in `anilist.query`:
 - [ ] [thread](AniLink/AniList/Queries/thread.md)
 - [ ] [threadComment](AniLink/AniList/Queries/threadComment.md)
 - [ ] [recommendation](AniLink/AniList/Queries/recommendation.md)
-- [ ] [markdown](AniLink/AniList/Queries/markdown.md)
+- [ ] [markdown](AniLink/AniList/Queries/markdown.md) <!-- textlint-disable-line -->
 - [ ] [aniChartUser](AniLink/AniList/Queries/aniChartUser.md)
 - [ ] [siteStatistics](AniLink/AniList/Queries/siteStatistics.md)
 - [ ] [externalLinkSourceCollection](AniLink/AniList/Queries/externalLinkSourceCollection.md)
@@ -219,8 +219,6 @@ AniLink will throw an error if the AniList API returns an error. You can catch t
 This includes status codes and error messages returned by the AniList API. Here is an example rate limit handler to catch the errors thrown by AniLink:
 
 ```python
-import time
-
 async def handle_rate_limit(api_call, retry_after=60):
     while True:
         try:
