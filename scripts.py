@@ -34,7 +34,7 @@ def run_command(command, check=True, capture_output=True, text=True):
         )
         return result
     except subprocess.CalledProcessError as e:
-        print(f"{command[2]} exited with status {e.returncode}. There might be issues.")
+        print(f"{command[2]} exited with status {e.returncode}. Error message: {e.stderr}")
         return None
 
 
