@@ -1,3 +1,10 @@
+USERANIMESTATSSCHEMA = """
+count
+meanScore
+minutesWatched
+mediaIds
+"""
+
 """
 This is the UserAnimeStatsSchema for the Anilist API. It defines the structure of the user's anime statistics data
 that is expected to be returned from the API.
@@ -9,10 +16,10 @@ Attributes:
     mediaIds (list): The list of IDs of the anime the user has watched.
 """
 
-USERANIMESTATSSCHEMA = """
+USERMANGASTATSSCHEMA = """
 count
 meanScore
-minutesWatched
+chaptersRead
 mediaIds
 """
 
@@ -25,10 +32,4 @@ Attributes:
     meanScore (float): The mean score of the manga the user has read.
     chaptersRead (int): The total chapters the user has read in manga.
     mediaIds (list): The list of IDs of the manga the user has read.
-"""
-USERMANGASTATSSCHEMA = """
-count
-meanScore
-chaptersRead
-mediaIds
 """

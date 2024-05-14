@@ -90,6 +90,7 @@ nav:
                       - User: AniLink/AniList/Queries/user.md
               - Mutation:
                   - AniLink/AniList/Mutations/index.md
+                  - Schemas: AniLink/AniList/Mutations/schemas.md
                   - Mutations:
                       - Update User: AniLink/AniList/Mutations/updateUser.md
               - Custom: AniLink/AniList/custom.md

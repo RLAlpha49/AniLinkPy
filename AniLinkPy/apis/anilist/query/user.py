@@ -1,6 +1,6 @@
 from typing import Union
 
-from AniLinkPy.apis.anilist.schemas.query.user_schema import UserSchema
+from AniLinkPy.apis.anilist.schemas.query.user_schema import USERSCHEMA
 from AniLinkPy.base.RequestHandler import send_request
 
 
@@ -43,7 +43,7 @@ class UserQuery:
             query ($id: Int, $name: String, $isModerator: Boolean, $search: String, $sort: [UserSort],
                 $asHtml: Boolean, $animeStatLimit: Int, $mangaStatLimit: Int, $animeStatSort: [UserStatisticsSort],
                 $mangaStatSort: [UserStatisticsSort]) {{ User (id: $id, name: $name, isModerator: $isModerator,
-                search: $search, sort: $sort) {{ {UserSchema}
+                search: $search, sort: $sort) {{ {USERSCHEMA}
                 }}
             }}
         """

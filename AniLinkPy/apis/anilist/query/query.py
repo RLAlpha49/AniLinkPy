@@ -1,5 +1,6 @@
 from typing import Union
 
+from AniLinkPy.apis.anilist.query.media import MediaQuery
 from AniLinkPy.apis.anilist.query.page.page import Page
 from AniLinkPy.apis.anilist.query.user import UserQuery
 
@@ -22,6 +23,7 @@ class Query:
         """
         self.page = Page()
         self.user_query = UserQuery(auth_token)
+        self.media_query = MediaQuery(auth_token)
 
     def user(self, variables: dict) -> dict:
         """
@@ -34,3 +36,15 @@ class Query:
             dict: The response from the user Query.
         """
         return self.user_query.user(variables)
+
+    def media(self, variables: dict) -> dict:
+        """
+        This method is used to get a media.
+
+        Args:
+            variables (dict): The variables for the Query.
+
+        Returns:
+            dict: The response from the media Query.
+        """
+        return self.media_query.media(variables)

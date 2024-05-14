@@ -10,7 +10,7 @@ AniLink is a Python library for interacting with the AniList API. It provides me
 
     Install AniLink with `poetry`, `hatch`, `pip` or `pipx` and start using it in minutes
 
-    [:octicons-arrow-right-24: Installation](installation)
+    [:octicons-arrow-right-24: Installation](installation.md)
 
 </div>
 
@@ -22,7 +22,7 @@ AniLink is a Python library for interacting with the AniList API. It provides me
 
     Use AniLink to query and mutate data from the AniList API
 
-    [:octicons-arrow-right-24: AniList API](AniListAPI)
+    [:octicons-arrow-right-24: AniList API](AniListAPI.md)
 
 -   :simple-myanimelist:{ .lg .middle } __MyAnimeList__
 
@@ -38,7 +38,7 @@ AniLink is a Python library for interacting with the AniList API. It provides me
 
     Coming soon: Use AniLink to query and mutate data from the Kitsu API
 
-    [:octicons-arrow-right-24: Kitsu API](KitsuAPI)
+    [:octicons-arrow-right-24: Kitsu API](KitsuAPI.md)
 
 </div>
 

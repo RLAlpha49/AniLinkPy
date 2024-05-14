@@ -50,6 +50,12 @@ class TestQueries(unittest.TestCase):
         print(response)
         self.assertIsNotNone(response)
 
+    def test_media(self):
+        variables = {"id": 1}
+        response = handle_rate_limit(lambda: self.anilink.anilist.query.media(variables))
+        print(response)
+        self.assertIsNotNone(response)
+
 
 if __name__ == "__main__":
     unittest.main()
