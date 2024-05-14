@@ -6,6 +6,7 @@ import argparse
 import os
 import shutil
 import subprocess
+import sys
 
 
 def build():
@@ -21,25 +22,49 @@ def build():
         print(f"An error occurred: {e}")
 
 
-def run_command(command, check=True, capture_output=True, text=True):
+def run_command(command, capture_output=True, text=True, check=False):
     """
-    This function runs a command with subprocess. Run and returns the result.
+    This function runs a command and returns the result.
+    :param command:
+    :param capture_output:
+    :param text:
+    :param check:
+    :return result:
     """
-    try:
-        result = subprocess.run(
-            command,
-            capture_output=capture_output,
-            text=text,
-            check=check,
-        )
+    result = subprocess.run(
+        command,
+        capture_output=capture_output,
+        text=text,
+        check=check,
+    )
+    if result.returncode != 0:
+        print(f"{command[2]} exited with status {result.returncode}.")
+        if result.stderr:
+            print(f"{result.stderr}")
         return result
-    except subprocess.CalledProcessError as e:
-        print(f"{command[2]} exited with status {e.returncode}. Error message: {e.stderr}")
-        return None
+    return result
+
+
+def run_and_handle_command(command, auto_fix):
+    """
+    This function runs a command and handles the result.
+    :param command:
+    :param auto_fix:
+    :return result:
+    """
+    if not auto_fix:
+        command.append("--check")
+    result = run_command(command)
+    if result and result.stdout:
+        print(result.stdout)
+    if result and result.returncode != 0:
+        return result
+    return None
 
 
 def clean(auto_fix=True):
     """
+    :param auto_fix:
     This function cleans the project using isort, black, flake8, pylint, and mypy.
     If auto_fix is True, isort and black will automatically fix problems.
     """
@@ -55,42 +80,30 @@ def clean(auto_fix=True):
     path = args.path
     auto_fix = not args.no_fix
 
+    errors = []
+
     print("Running isort...")
-    isort_command = ["poetry", "run", "isort", path]
-    if not auto_fix:
-        isort_command.append("--check")
-    result = run_command(isort_command)
-    if result and result.stdout:
-        print(result.stdout)
-    else:
-        print("isort found no problems.")
+    error = run_and_handle_command(["poetry", "run", "isort", path], auto_fix)
+    if error:
+        errors.append(error)
 
     print("\nRunning black...")
-    black_command = ["poetry", "run", "black", path]
-    if not auto_fix:
-        black_command.append("--check")
-    result = run_command(black_command)
-    if result and result.stdout:
-        print(result.stdout)
-    else:
-        print("black found no problems.")
+    error = run_and_handle_command(["poetry", "run", "black", path], auto_fix)
+    if error:
+        errors.append(error)
 
     print("\nRunning flake8...")
-    result = run_command(["poetry", "run", "flake8", path])
-    if result and result.stdout:
-        print(result.stdout)
-    else:
-        print("flake8 found no problems.")
+    error = run_and_handle_command(["poetry", "run", "flake8", path], auto_fix)
+    if error:
+        errors.append(error)
 
     print("\nRunning pylint...")
-    result = run_command(["poetry", "run", "pylint", path])
-    if result and result.stdout:
-        print(result.stdout)
-    else:
-        print("pylint found no problems.")
+    error = run_and_handle_command(["poetry", "run", "pylint", path], auto_fix)
+    if error:
+        errors.append(error)
 
     print("\nRunning mypy...")
-    result = run_command(
+    error = run_and_handle_command(
         [
             "poetry",
             "run",
@@ -98,9 +111,16 @@ def clean(auto_fix=True):
             "--install-types",
             "--non-interactive",
             path,
-        ]
+        ],
+        auto_fix,
     )
-    if result and result.stdout:
-        print(result.stdout)
-    else:
-        print("mypy found no problems.")
+    if error:
+        errors.append(error)
+
+    if errors:
+        print("\nErrors occurred during the cleaning process:")
+        for error in errors:
+            print(
+                f"Command '{' '.join(error.args)}' returned non-zero exit status {error.returncode}."
+            )
+        sys.exit(errors[0].returncode)
