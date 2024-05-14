@@ -1,3 +1,4 @@
+# pylint: disable=unnecessary-lambda
 import os
 import time
 import unittest
@@ -8,12 +9,18 @@ from AniLinkPy import AniLink
 
 
 def handle_rate_limit(api_call, retry_after=60):
+    """
+    This function handles the rate limit of the API.
+    :param api_call:
+    :param retry_after:
+    :return response:
+    """
     while True:
         try:
             response = api_call()
             print(response)
             return response
-        except Exception as error:
+        except Exception as error:  # pylint: disable=broad-except
             if "429" in str(error):
                 print("Rate limit exceeded, waiting for 1 minute before retrying...")
                 time.sleep(retry_after)
@@ -23,12 +30,22 @@ def handle_rate_limit(api_call, retry_after=60):
 
 
 class TestQueries(unittest.TestCase):
+    """
+    This class contains tests for the queries in the AniList API.
+    """
+
     def setUp(self):
+        """
+        This method sets up the tests environment.
+        """
         load_dotenv()
         self.auth_token = os.getenv("ANILIST_TOKEN")
         self.anilink = AniLink.AniLink(self.auth_token)
 
     def test_custom(self):
+        """
+        This method tests the custom query.
+        """
         query = """
             query ($id: Int) {
                 User (id: $id) {
@@ -41,19 +58,65 @@ class TestQueries(unittest.TestCase):
         response = handle_rate_limit(
             lambda: self.anilink.anilist.custom(query, variables)
         )
-        print(response)
         self.assertIsNotNone(response)
 
     def test_user(self):
+        """
+        This method tests the user query.
+        """
         variables = {"id": 1}
         response = handle_rate_limit(lambda: self.anilink.anilist.query.user(variables))
-        print(response)
         self.assertIsNotNone(response)
 
     def test_media(self):
+        """
+        This method tests the media query.
+        """
         variables = {"id": 1}
-        response = handle_rate_limit(lambda: self.anilink.anilist.query.media(variables))
-        print(response)
+        response = handle_rate_limit(
+            lambda: self.anilink.anilist.query.media(variables)
+        )
+        self.assertIsNotNone(response)
+
+
+class TestPageQueries(unittest.TestCase):
+    """
+    This class contains tests for the page queries in the AniList API.
+    """
+
+    def setUp(self):
+        """
+        This method sets up the tests environment.
+        """
+        load_dotenv()
+        self.auth_token = os.getenv("ANILIST_TOKEN")
+        self.anilink = AniLink.AniLink(self.auth_token)
+
+    def test_activities(self):
+        """
+        This method tests the activities query.
+        """
+        response = handle_rate_limit(
+            lambda: self.anilink.anilist.query.page.activities()
+        )
+        self.assertIsNotNone(response)
+
+    def test_activity_replies(self):
+        """
+        This method tests the activity_replies query.
+        """
+        response = handle_rate_limit(
+            lambda: self.anilink.anilist.query.page.activityReplies()
+        )
+        self.assertIsNotNone(response)
+
+    def test_airing_schedules(self):
+        """
+        This method tests the airing_schedules query.
+        """
+        response = handle_rate_limit(
+            lambda: self.anilink.anilist.query.page.airingSchedules()
+        )
         self.assertIsNotNone(response)
 
 

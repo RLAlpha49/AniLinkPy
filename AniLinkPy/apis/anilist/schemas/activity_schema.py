@@ -33,58 +33,56 @@ Attributes:
 """
 
 ACTIVITYSCHEMA = """
-  activity {
-    ... on TextActivity {
+  ... on TextActivity {
+    id
+    userId
+    type
+    replyCount
+    text (asHtml: $asHtml)
+    siteUrl
+    isLocked
+    isSubscribed
+    likeCount
+    isLiked
+    isPinned
+    createdAt
+  }
+  ... on ListActivity {
+    id
+    userId
+    type
+    replyCount
+    status
+    progress
+    isLocked
+    isSubscribed
+    likeCount
+    isLiked
+    isPinned
+    siteUrl
+    createdAt
+    media {
       id
-      userId
-      type
-      replyCount
-      text (asHtml: $asHtml)
-      siteUrl
-      isLocked
-      isSubscribed
-      likeCount
-      isLiked
-      isPinned
-      createdAt
-    }
-    ... on ListActivity {
-      id
-      userId
-      type
-      replyCount
-      status
-      progress
-      isLocked
-      isSubscribed
-      likeCount
-      isLiked
-      isPinned
-      siteUrl
-      createdAt
-      media {
-        id
-        title {
-          romaji
-          english
-        }
+      title {
+        romaji
+        english
       }
     }
-    ... on MessageActivity {
-      id
-      recipientId
-      messengerId
-      type
-      replyCount
-      message (asHtml: $asHtml)
-      isLocked
-      isSubscribed
-      likeCount
-      isLiked
-      isPrivate
-      siteUrl
-      createdAt
-    }
+  }
+  ... on MessageActivity {
+    id
+    recipientId
+    messengerId
+    type
+    replyCount
+    message (asHtml: $asHtml)
+    isLocked
+    isSubscribed
+    likeCount
+    isLiked
+    isPrivate
+    siteUrl
+    createdAt
   }
 """
 
@@ -107,162 +105,160 @@ Attributes:
 """
 
 ACTIVITYSCHEMAV2 = f"""
-  activity {{
-    ... on TextActivity {{
+  ... on TextActivity {{
+    id
+    userId
+    type
+    replyCount
+    text (asHtml: $asHtml)
+    siteUrl
+    isLocked
+    isSubscribed
+    likeCount
+    isLiked
+    isPinned
+    createdAt
+    user {{
+      {BASICUSERSCHEMA}
+    }}
+    replies {{
+      {ACTIVITYREPLYSCHEMA}
+    }}
+    likes {{
+      {BASICUSERSCHEMA}
+    }}
+  }}
+  ... on ListActivity {{
+    id
+    userId
+    type
+    replyCount
+    status
+    progress
+    isLocked
+    isSubscribed
+    likeCount
+    isLiked
+    isPinned
+    siteUrl
+    createdAt
+    media {{
       id
-      userId
-      type
-      replyCount
-      text (asHtml: $asHtml)
-      siteUrl
-      isLocked
-      isSubscribed
-      likeCount
-      isLiked
-      isPinned
-      createdAt
-      user {{
-        {BASICUSERSCHEMA}
-      }}
-      replies {{
-        {ACTIVITYREPLYSCHEMA}
-      }}
-      likes {{
-        {BASICUSERSCHEMA}
+      title {{
+        romaji
+        english
       }}
     }}
-    ... on ListActivity {{
-      id
-      userId
-      type
-      replyCount
-      status
-      progress
-      isLocked
-      isSubscribed
-      likeCount
-      isLiked
-      isPinned
-      siteUrl
-      createdAt
-      media {{
-        id
-        title {{
-          romaji
-          english
-        }}
-      }}
-      user {{
-        {BASICUSERSCHEMA}
-      }}
-      replies {{
-        {ACTIVITYREPLYSCHEMA}
-      }}
-      likes {{
-        {BASICUSERSCHEMA}
-      }}
+    user {{
+      {BASICUSERSCHEMA}
     }}
-    ... on MessageActivity {{
-      id
-      recipientId
-      messengerId
-      type
-      replyCount
-      message (asHtml: $asHtml)
-      isLocked
-      isSubscribed
-      likeCount
-      isLiked
-      isPrivate
-      siteUrl
-      createdAt
-      recipient {{
-        {BASICUSERSCHEMA}
-      }}
-      messenger {{
-        {BASICUSERSCHEMA}
-      }}
-      replies {{
-        {ACTIVITYREPLYSCHEMA}
-      }}
-      likes {{
-        {BASICUSERSCHEMA}
-      }}
+    replies {{
+      {ACTIVITYREPLYSCHEMA}
     }}
-    ... on ActivityReply {{
-      id
-      userId
-      activityId
-      text (asHtml: $asHtml)
-      likeCount
-      isLiked
-      createdAt
-      user {{
-        {BASICUSERSCHEMA}
-      }}
-      likes {{
-        {BASICUSERSCHEMA}
-      }}
+    likes {{
+      {BASICUSERSCHEMA}
     }}
-    ... on Thread {{
+  }}
+  ... on MessageActivity {{
+    id
+    recipientId
+    messengerId
+    type
+    replyCount
+    message (asHtml: $asHtml)
+    isLocked
+    isSubscribed
+    likeCount
+    isLiked
+    isPrivate
+    siteUrl
+    createdAt
+    recipient {{
+      {BASICUSERSCHEMA}
+    }}
+    messenger {{
+      {BASICUSERSCHEMA}
+    }}
+    replies {{
+      {ACTIVITYREPLYSCHEMA}
+    }}
+    likes {{
+      {BASICUSERSCHEMA}
+    }}
+  }}
+  ... on ActivityReply {{
+    id
+    userId
+    activityId
+    text (asHtml: $asHtml)
+    likeCount
+    isLiked
+    createdAt
+    user {{
+      {BASICUSERSCHEMA}
+    }}
+    likes {{
+      {BASICUSERSCHEMA}
+    }}
+  }}
+  ... on Thread {{
+    id
+    title
+    body (asHtml: $asHtml)
+    ThreadUserId: userId
+    replyUserId
+    replyCommentId
+    ThreadReplyCount: replyCount
+    viewCount
+    isLocked
+    isSticky
+    isSubscribed
+    likeCount
+    isLiked
+    repliedAt
+    createdAt
+    updatedAt
+    user {{
+      {BASICUSERSCHEMA}
+    }}
+    replyUser {{
+      {BASICUSERSCHEMA}
+    }}
+    likes {{
+      {BASICUSERSCHEMA}
+    }}
+    siteUrl
+    categories {{
+      id
+      name
+    }}
+    mediaCategories {{
+      id
+      {TITLESCHEMA}
+    }}
+  }}
+  ... on ThreadComment {{
+    id
+    userId
+    threadId
+    comment (asHtml: $asHtml)
+    likeCount
+    isLiked
+    siteUrl
+    createdAt
+    updatedAt
+    thread {{
       id
       title
-      body (asHtml: $asHtml)
-      ThreadUserId: userId
-      replyUserId
-      replyCommentId
-      ThreadReplyCount: replyCount
-      viewCount
-      isLocked
-      isSticky
-      isSubscribed
-      likeCount
-      isLiked
-      repliedAt
-      createdAt
-      updatedAt
-      user {{
-        {BASICUSERSCHEMA}
-      }}
-      replyUser {{
-        {BASICUSERSCHEMA}
-      }}
-      likes {{
-        {BASICUSERSCHEMA}
-      }}
-      siteUrl
-      categories {{
-        id
-        name
-      }}
-      mediaCategories {{
-        id
-        {TITLESCHEMA}
-      }}
     }}
-    ... on ThreadComment {{
-      id
-      userId
-      threadId
-      comment (asHtml: $asHtml)
-      likeCount
-      isLiked
-      siteUrl
-      createdAt
-      updatedAt
-      thread {{
-        id
-        title
-      }}
-      user {{
-        {BASICUSERSCHEMA}
-      }}
-      likes {{
-        {BASICUSERSCHEMA}
-      }}
-      childComments
-      isLocked
+    user {{
+      {BASICUSERSCHEMA}
     }}
+    likes {{
+      {BASICUSERSCHEMA}
+    }}
+    childComments
+    isLocked
   }}
 """
 
@@ -288,87 +284,85 @@ Attributes:
 """
 
 ACTIVITYWITHREPLIESSCHEMA = f"""
-  activity {{
-    ... on TextActivity {{
+  ... on TextActivity {{
+    id
+    userId
+    type
+    replyCount
+    text (asHtml: $asHtml)
+    siteUrl
+    isLocked
+    isSubscribed
+    likeCount
+    isLiked
+    isPinned
+    createdAt
+    user {{
+      {BASICUSERSCHEMA}
+    }}
+    replies {{
+      {ACTIVITYREPLYSCHEMA}
+    }}
+    likes {{
+      {BASICUSERSCHEMA}
+    }}
+  }}
+  ... on ListActivity {{
+    id
+    userId
+    type
+    replyCount
+    status
+    progress
+    isLocked
+    isSubscribed
+    likeCount
+    isLiked
+    isPinned
+    siteUrl
+    createdAt
+    media {{
       id
-      userId
-      type
-      replyCount
-      text (asHtml: $asHtml)
-      siteUrl
-      isLocked
-      isSubscribed
-      likeCount
-      isLiked
-      isPinned
-      createdAt
-      user {{
-        {BASICUSERSCHEMA}
-      }}
-      replies {{
-        {ACTIVITYREPLYSCHEMA}
-      }}
-      likes {{
-        {BASICUSERSCHEMA}
+      title {{
+        romaji
+        english
       }}
     }}
-    ... on ListActivity {{
-      id
-      userId
-      type
-      replyCount
-      status
-      progress
-      isLocked
-      isSubscribed
-      likeCount
-      isLiked
-      isPinned
-      siteUrl
-      createdAt
-      media {{
-        id
-        title {{
-          romaji
-          english
-        }}
-      }}
-      user {{
-        {BASICUSERSCHEMA}
-      }}
-      replies {{
-        {ACTIVITYREPLYSCHEMA}
-      }}
-      likes {{
-        {BASICUSERSCHEMA}
-      }}
+    user {{
+      {BASICUSERSCHEMA}
     }}
-    ... on MessageActivity {{
-      id
-      recipientId
-      messengerId
-      type
-      replyCount
-      message (asHtml: $asHtml)
-      isLocked
-      isSubscribed
-      likeCount
-      isLiked
-      isPrivate
-      siteUrl
-      createdAt
-      recipient {{
-        BASICUSERSCHEMA
-      }}
-      messenger {{
-        {BASICUSERSCHEMA}
-      }}
-      replies {{
-        {ACTIVITYREPLYSCHEMA}
-      }}
-      likes {{
-        {BASICUSERSCHEMA}
-      }}
+    replies {{
+      {ACTIVITYREPLYSCHEMA}
+    }}
+    likes {{
+      {BASICUSERSCHEMA}
+    }}
+  }}
+  ... on MessageActivity {{
+    id
+    recipientId
+    messengerId
+    type
+    replyCount
+    message (asHtml: $asHtml)
+    isLocked
+    isSubscribed
+    likeCount
+    isLiked
+    isPrivate
+    siteUrl
+    createdAt
+    recipient {{
+      {BASICUSERSCHEMA}
+    }}
+    messenger {{
+      {BASICUSERSCHEMA}
+    }}
+    replies {{
+      {ACTIVITYREPLYSCHEMA}
+    }}
+    likes {{
+      {BASICUSERSCHEMA}
     }}
   }}
 """

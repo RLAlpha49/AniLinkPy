@@ -75,7 +75,7 @@ class MediaQuery:
         $tagCategory_not_in, licensedBy_in: $licensedBy_in, licensedById_in: $licensedById_in, averageScore_not:
         $averageScore_not, averageScore_greater: $averageScore_greater, averageScore_lesser: $averageScore_lesser,
         popularity_not: $popularity_not, popularity_greater: $popularity_greater, popularity_lesser:
-        $popularity_lesser, source_in: $source_in, sort: $sort) {{ {MEDIAWITHRELATIONSSCHEMA}}}}}
+        $popularity_lesser, source_in: $source_in, sort: $sort) {{ {MEDIAWITHRELATIONSSCHEMA} }}}}
         """
 
         data = {"query": query, "variables": variables}

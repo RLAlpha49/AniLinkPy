@@ -21,7 +21,7 @@ class Query:
         Args:
             auth_token (str): The authentication token.
         """
-        self.page = Page()
+        self.page = Page(auth_token)
         self.user_query = UserQuery(auth_token)
         self.media_query = MediaQuery(auth_token)
 
