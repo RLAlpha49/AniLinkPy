@@ -25,6 +25,14 @@ jobs:
       run: |
         poetry install
 
-    - name: Run clean script
+    - name: Run clean script on AniLinkPy directory
       run: |
-        poetry run clean .
+        poetry run clean
+
+    - name: Run clean script on tests directory
+      run: |
+        poetry run clean tests
+
+    - name: Run clean script on scripts.py file
+      run: |
+        poetry run clean scripts.py

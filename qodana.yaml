@@ -3,3 +3,7 @@ linter: jetbrains/qodana-python-community:2023.3
 exclude:
   - name: PyInterpreterInspection
   - name: PyUnresolvedReferencesInspection
+  - name: PyPep8NamingInspection
+  - name: PyUnusedLocalInspection
+    paths:
+      - scripts.py
