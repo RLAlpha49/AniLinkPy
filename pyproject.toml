@@ -34,10 +34,11 @@ requests = "*"
 
 [tool.poetry.dev-dependencies]
 python-dotenv = "*"
+types-requests = "*"
 twine = "^5.0.0"
 isort = "^5.13.2"
 black = "^24.4.2"
-pylint = "^3.1.1"
+pylint = "^3.2.0"
 mypy = "^1.10.0"
 flake8 = "^7.0.0"
 mkdocs = "^1.6.0"
