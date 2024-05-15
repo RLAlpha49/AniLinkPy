@@ -1,4 +1,4 @@
-from typing import Optional, Union
+from typing import Dict, Optional, Union
 
 from AniLinkPy.base.RequestHandler import send_request
 
@@ -22,7 +22,11 @@ class CustomRequest:
         self.base_url = "https://graphql.anilist.co"
         self.auth_token = auth_token
 
-    def custom(self, query: str, variables: Optional[dict] = None) -> dict:
+    def custom(
+        self,
+        query: str,
+        variables: Optional[Union[Dict[str, Union[str, int, bool]]]] = None,
+    ) -> dict:
         """
         This method is used to send a custom Query.
 

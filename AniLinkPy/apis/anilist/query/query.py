@@ -1,4 +1,4 @@
-from typing import Union
+from typing import Dict, Union
 
 from AniLinkPy.apis.anilist.query.media import MediaQuery
 from AniLinkPy.apis.anilist.query.page.page import Page
@@ -25,7 +25,7 @@ class Query:
         self.user_query = UserQuery(auth_token)
         self.media_query = MediaQuery(auth_token)
 
-    def user(self, variables: dict) -> dict:
+    def user(self, variables: Union[Dict[str, Union[str, int, bool]]]) -> dict:
         """
         This method is used to get a user.
 
@@ -37,7 +37,7 @@ class Query:
         """
         return self.user_query.user(variables)
 
-    def media(self, variables: dict) -> dict:
+    def media(self, variables: Union[Dict[str, Union[str, int, bool]]]) -> dict:
         """
         This method is used to get a media.
 

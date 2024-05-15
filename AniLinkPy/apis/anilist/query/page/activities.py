@@ -1,4 +1,4 @@
-from typing import Union
+from typing import Dict, Union
 
 from AniLinkPy.apis.anilist.schemas.activity_schema import ACTIVITYWITHREPLIESSCHEMA
 from AniLinkPy.base.RequestHandler import send_request
@@ -23,7 +23,7 @@ class ActivitiesQuery:
         self.base_url = "https://graphql.anilist.co"
         self.auth_token = auth_token
 
-    def activities(self, variables: dict) -> dict:
+    def activities(self, variables: Union[Dict[str, Union[str, int, bool]]]) -> dict:
         """
         This method is used to send an activities Query.
 
@@ -40,7 +40,7 @@ class ActivitiesQuery:
         query = f"""
         query ($page: Int, $perPage: Int, $id: Int, $userId: Int, $messengerId: Int, $mediaId: Int,
         $type: ActivityType, $isFollowing: Boolean, $hasReplies: Boolean, $hasRepliesOrTypeText: Boolean, $createdAt:
-        Int, $id_not: Int, $id_in: [Int], $id_not_in: [Int], $userId_not: Int, $userId_in: [Int], $userId_not_in:
+        Int, $id_not: Int, $id_in: [Int], $id_not_in: [Int], $userId_not: Int, $userId_in: [Int], $userId_not_in: [
         Int], $messengerId_not: Int, $messengerId_in: [Int], $messengerId_not_in: [Int], $mediaId_not: Int,
         $mediaId_in: [Int], $mediaId_not_in: [Int], $type_not: ActivityType, $type_in: [ActivityType], $type_not_in:
         [ActivityType], $createdAt_greater: Int, $sort: [ActivitySort], $asHtml: Boolean) {{ Page (page: $page,

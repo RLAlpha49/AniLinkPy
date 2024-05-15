@@ -2,7 +2,7 @@
 This module contains the Page class which represents a Page in the AniLink API.
 """
 
-from typing import Union
+from typing import Dict, Union
 
 from AniLinkPy.apis.anilist.query.page.activities import ActivitiesQuery
 from AniLinkPy.apis.anilist.query.page.activity_replies import ActivityRepliesQuery
@@ -25,7 +25,9 @@ class Page:
         self.activity_replies_query = ActivityRepliesQuery(auth_token)
         self.airing_schedules_query = AiringSchedulesQuery(auth_token)
 
-    def activities(self, variables: Union[dict, None] = None) -> dict:
+    def activities(
+        self, variables: Union[Dict[str, Union[str, int, bool]], None] = None
+    ) -> dict:
         """
         This method is used to get activities.
 
@@ -39,7 +41,9 @@ class Page:
             variables = {}
         return self.activities_query.activities(variables)
 
-    def activityReplies(self, variables: Union[dict, None] = None) -> dict:
+    def activityReplies(
+        self, variables: Union[Dict[str, Union[str, int, bool]], None] = None
+    ) -> dict:
         """
         This method is used to get activity_replies.
 
@@ -53,7 +57,9 @@ class Page:
             variables = {}
         return self.activity_replies_query.activityReplies(variables)
 
-    def airingSchedules(self, variables: Union[dict, None] = None) -> dict:
+    def airingSchedules(
+        self, variables: Union[Dict[str, Union[str, int, bool]], None] = None
+    ) -> dict:
         """
         This method is used to get airing_schedules.
 

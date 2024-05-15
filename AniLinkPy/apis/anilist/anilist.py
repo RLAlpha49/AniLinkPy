@@ -1,4 +1,4 @@
-from typing import Union
+from typing import Dict, Union
 
 from AniLinkPy.apis.anilist.custom import CustomRequest
 from AniLinkPy.apis.anilist.mutation.mutation import Mutation
@@ -27,7 +27,9 @@ class AniList:
         self.mutation = Mutation()
         self.custom_query = CustomRequest(auth_token)
 
-    def custom(self, query: str, variables: dict) -> dict:
+    def custom(
+        self, query: str, variables: Union[Dict[str, Union[str, int, bool]]]
+    ) -> dict:
         """
         This method is used to send a custom Query or Mutation.
 

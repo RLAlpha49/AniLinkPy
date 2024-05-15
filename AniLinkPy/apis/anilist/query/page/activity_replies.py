@@ -1,4 +1,4 @@
-from typing import Union
+from typing import Dict, Union
 
 from AniLinkPy.apis.anilist.schemas.activity_schema import ACTIVITYREPLYSCHEMA
 from AniLinkPy.base.RequestHandler import send_request
@@ -23,7 +23,9 @@ class ActivityRepliesQuery:
         self.base_url = "https://graphql.anilist.co"
         self.auth_token = auth_token
 
-    def activityReplies(self, variables: dict) -> dict:
+    def activityReplies(
+        self, variables: Union[Dict[str, Union[str, int, bool]]]
+    ) -> dict:
         """
         This method is used to send an ActivityReplies Query.
 

@@ -1,4 +1,4 @@
-from typing import Union
+from typing import Dict, Union
 
 from AniLinkPy.apis.anilist.schemas.query.media_with_relations_schema import (
     MEDIAWITHRELATIONSSCHEMA,
@@ -25,7 +25,7 @@ class MediaQuery:
         self.base_url = "https://graphql.anilist.co"
         self.auth_token = auth_token
 
-    def media(self, variables: dict) -> dict:
+    def media(self, variables: Union[Dict[str, Union[str, int, bool]]]) -> dict:
         """
         This method is used to send a media Query.
 
