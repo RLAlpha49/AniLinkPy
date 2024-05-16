@@ -119,6 +119,15 @@ class TestPageQueries(unittest.TestCase):
         )
         self.assertIsNotNone(response)
 
+    def test_characters(self):
+        """
+        This method tests the characters query.
+        """
+        response = handle_rate_limit(
+            lambda: self.anilink.anilist.query.page.characters()
+        )
+        self.assertIsNotNone(response)
+
 
 if __name__ == "__main__":
     unittest.main()
