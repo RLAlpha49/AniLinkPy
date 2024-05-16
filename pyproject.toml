@@ -35,7 +35,7 @@ requests = "*"
 [tool.poetry.dev-dependencies]
 python-dotenv = "*"
 types-requests = "*"
-twine = "^5.0.0"
+twine = "^5.1.0"
 isort = "^5.13.2"
 black = "^24.4.2"
 pylint = "^3.2.0"
