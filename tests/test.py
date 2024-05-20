@@ -138,6 +138,16 @@ class TestPageQueries(unittest.TestCase):
         )
         self.assertIsNotNone(response)
 
+    def test_followings(self):
+        """
+        This method tests the followings query.
+        """
+        variables = {"page": 1, "perPage": 10, "userId": 1, "sort": ["ID_DESC"]}
+        response = handle_rate_limit(
+            lambda: self.anilink.anilist.query.page.followings(variables)
+        )
+        self.assertIsNotNone(response)
+
 
 if __name__ == "__main__":
     unittest.main()

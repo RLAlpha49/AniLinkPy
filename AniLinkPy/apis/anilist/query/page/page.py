@@ -9,6 +9,7 @@ from AniLinkPy.apis.anilist.query.page.activity_replies import ActivityRepliesQu
 from AniLinkPy.apis.anilist.query.page.airing_schedules import AiringSchedulesQuery
 from AniLinkPy.apis.anilist.query.page.characters import CharactersQuery
 from AniLinkPy.apis.anilist.query.page.followers import FollowersQuery
+from AniLinkPy.apis.anilist.query.page.followings import FollowingsQuery
 
 
 class Page:
@@ -28,6 +29,7 @@ class Page:
         self.airing_schedules_query = AiringSchedulesQuery(auth_token)
         self.characters_query = CharactersQuery(auth_token)
         self.followers_query = FollowersQuery(auth_token)
+        self.followings_query = FollowingsQuery(auth_token)
 
     def activities(
         self, variables: Union[Dict[str, Union[str, int, bool]], None] = None
@@ -108,3 +110,19 @@ class Page:
         if variables is None:
             variables = {}
         return self.followers_query.followers(variables)
+
+    def followings(
+        self, variables: Union[Dict[str, Union[str, int, bool]], None] = None
+    ) -> dict:
+        """
+        This method is used to get followings.
+
+        Args:
+            variables (dict): The variables for the Query.
+
+        Returns:
+            dict: The response from the followings Query.
+        """
+        if variables is None:
+            variables = {}
+        return self.followings_query.followings(variables)
