@@ -2,7 +2,7 @@
 name = "AniLinkPy"
 version = "1.0.2"
 description = "API wrapper for AniManga sites such as Anilist, MyAnimeList, Kitsu."
-authors = [{ name = "RLAlpha49", email = "alexpettigrew29@gmail.com"}]
+authors = [{ name = "RLAlpha49", email = "RLAlpha49 <75044176+RLAlpha49@users.noreply.github.com>"}]
 readme = "README.md"
 requires-python = ">3.9"
 classifiers = [

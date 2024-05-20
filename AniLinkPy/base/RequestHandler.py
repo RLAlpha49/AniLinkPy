@@ -2,6 +2,7 @@
 from typing import Optional
 
 import requests
+
 from AniLinkPy.exceptions import RequestError, UnsupportedMethodError
 
 

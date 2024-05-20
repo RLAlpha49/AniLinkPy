@@ -25,7 +25,7 @@ class CharactersQuery:
 
     def characters(self, variables: Union[Dict[str, Union[str, int, bool]]]) -> dict:
         """
-        This method is used to send an airingSchedules Query.
+        This method is used to send an characters Query.
 
         Args:
             variables (dict): The variables for the Query.
