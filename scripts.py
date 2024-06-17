@@ -53,7 +53,10 @@ def run_and_handle_command(command, auto_fix):
     :return result:
     """
     if not auto_fix:
-        command.append("--check")
+        if "check" in command:
+            command.append("--fix")
+        else:
+            command.append("--check")
     result = run_command(command)
     if result and result.stdout:
         print(result.stdout)
@@ -62,11 +65,9 @@ def run_and_handle_command(command, auto_fix):
     return None
 
 
-def clean(auto_fix=True):
+def clean():
     """
-    :param auto_fix:
-    This function cleans the project using isort, black, flake8, pylint, and mypy.
-    If auto_fix is True, isort and black will automatically fix problems.
+    This function cleans a Python project. It runs ruff and mypy.
     """
     parser = argparse.ArgumentParser(description="Clean a Python project.")
     parser.add_argument(
@@ -82,23 +83,11 @@ def clean(auto_fix=True):
 
     errors = []
 
-    print("Running isort...")
-    error = run_and_handle_command(["poetry", "run", "isort", path], auto_fix)
+    print("Running ruff...")
+    error = run_and_handle_command(["poetry", "run", "ruff", "check", path], auto_fix)
     if error:
         errors.append(error)
-
-    print("\nRunning black...")
-    error = run_and_handle_command(["poetry", "run", "black", path], auto_fix)
-    if error:
-        errors.append(error)
-
-    print("\nRunning flake8...")
-    error = run_and_handle_command(["poetry", "run", "flake8", path], auto_fix)
-    if error:
-        errors.append(error)
-
-    print("\nRunning pylint...")
-    error = run_and_handle_command(["poetry", "run", "pylint", path], auto_fix)
+    error = run_and_handle_command(["poetry", "run", "ruff", "format", path], auto_fix)
     if error:
         errors.append(error)
 

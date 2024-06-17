@@ -1,26 +1,17 @@
-name: Python Lint
-
-on:
-  push:
-    branches: [ "master" ]
-  pull_request:
-    branches: [ "master" ]
-
+name: Ruff & Mypy
+on: [push, pull_request]
 jobs:
-  lint:
+  Clean:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
-
     - name: Set up Python
       uses: actions/setup-python@v5
       with:
         python-version: 3.9
-
     - name: Install Poetry
       run: |
         curl -sSL https://install.python-poetry.org | python3 -
-
     - name: Cache Poetry dependencies
       uses: actions/cache@v4
       with:
@@ -28,19 +19,15 @@ jobs:
         key: ${{ runner.os }}-poetry-${{ hashFiles('**/poetry.lock') }}
         restore-keys: |
           ${{ runner.os }}-poetry-
-
     - name: Install dependencies
       run: |
         poetry install
-
     - name: Run clean script on AniLinkPy directory
       run: |
-        poetry run clean
-
+        poetry run clean --no-fix
     - name: Run clean script on tests directory
       run: |
-        poetry run clean tests
-
+        poetry run clean tests --no-fix
     - name: Run clean script on scripts.py file
       run: |
-        poetry run clean scripts.py
+        poetry run clean scripts.py --no-fix
