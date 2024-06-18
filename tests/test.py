@@ -2,6 +2,7 @@
 import os
 import time
 import unittest
+from typing import Union, List
 
 from dotenv import load_dotenv
 
@@ -54,7 +55,7 @@ class TestQueries(unittest.TestCase):
                 }
             }
         """
-        variables = {"id": 1}
+        variables: dict[str, Union[str, int, bool]] = {"id": 1}
         response = handle_rate_limit(
             lambda: self.anilink.anilist.custom(query, variables)
         )
@@ -64,7 +65,7 @@ class TestQueries(unittest.TestCase):
         """
         This method tests the user query.
         """
-        variables = {"id": 1}
+        variables: dict[str, Union[str, int, bool]] = {"id": 1}
         response = handle_rate_limit(lambda: self.anilink.anilist.query.user(variables))
         self.assertIsNotNone(response)
 
@@ -72,7 +73,7 @@ class TestQueries(unittest.TestCase):
         """
         This method tests the media query.
         """
-        variables = {"id": 1}
+        variables: dict[str, Union[str, int, bool]] = {"id": 1}
         response = handle_rate_limit(
             lambda: self.anilink.anilist.query.media(variables)
         )
@@ -132,7 +133,12 @@ class TestPageQueries(unittest.TestCase):
         """
         This method tests the followers query.
         """
-        variables = {"page": 1, "perPage": 10, "userId": 1, "sort": ["ID_DESC"]}
+        variables: dict[str, Union[str, int, bool, List[str]]] | None = {
+            "page": 1,
+            "perPage": 10,
+            "userId": 1,
+            "sort": ["ID_DESC"],
+        }
         response = handle_rate_limit(
             lambda: self.anilink.anilist.query.page.followers(variables)
         )
@@ -142,7 +148,12 @@ class TestPageQueries(unittest.TestCase):
         """
         This method tests the followings query.
         """
-        variables = {"page": 1, "perPage": 10, "userId": 1, "sort": ["ID_DESC"]}
+        variables: dict[str, Union[str, int, bool, List[str]]] | None = {
+            "page": 1,
+            "perPage": 10,
+            "userId": 1,
+            "sort": ["ID_DESC"],
+        }
         response = handle_rate_limit(
             lambda: self.anilink.anilist.query.page.followings(variables)
         )

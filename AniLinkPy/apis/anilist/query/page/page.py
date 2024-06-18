@@ -2,7 +2,7 @@
 This module contains the Page class which represents a Page in the AniLink API.
 """
 
-from typing import Dict, Union
+from typing import Dict, Union, List
 
 from AniLinkPy.apis.anilist.query.page.activities import ActivitiesQuery
 from AniLinkPy.apis.anilist.query.page.activity_replies import ActivityRepliesQuery
@@ -96,7 +96,7 @@ class Page:
         return self.characters_query.characters(variables)
 
     def followers(
-        self, variables: Union[Dict[str, Union[str, int, bool]], None] = None
+        self, variables: Union[Dict[str, Union[str, int, bool, List[str]]], None] = None
     ) -> dict:
         """
         This method is used to get followers.
@@ -112,7 +112,7 @@ class Page:
         return self.followers_query.followers(variables)
 
     def followings(
-        self, variables: Union[Dict[str, Union[str, int, bool]], None] = None
+        self, variables: Union[Dict[str, Union[str, int, bool, List[str]]], None] = None
     ) -> dict:
         """
         This method is used to get followings.

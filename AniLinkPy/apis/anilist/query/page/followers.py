@@ -1,4 +1,4 @@
-from typing import Dict, Union
+from typing import Dict, Union, List
 
 from AniLinkPy.apis.anilist.schemas.query.user_schema import USERSCHEMA
 from AniLinkPy.base.RequestHandler import send_request
@@ -23,7 +23,9 @@ class FollowersQuery:
         self.base_url = "https://graphql.anilist.co"
         self.auth_token = auth_token
 
-    def followers(self, variables: Union[Dict[str, Union[str, int, bool]]]) -> dict:
+    def followers(
+        self, variables: Union[Dict[str, Union[str, int, bool, List[str]]]]
+    ) -> dict:
         """
         This method is used to send an followers Query.
 
