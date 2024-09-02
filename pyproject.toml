@@ -38,15 +38,15 @@ types-requests = "*"
 twine = "^5.1.1"
 isort = "^5.13.2"
 black = "^24.8.0"
-pylint = "^3.2.6"
+pylint = "^3.2.7"
 mypy = "^1.11.2"
 flake8 = "^7.1.1"
-mkdocs = "^1.6.0"
-mkdocs-material = "^9.5.33"
-mkdocstrings = {extras = ["crystal", "python"], version = "^0.25.2"}
+mkdocs = "^1.6.1"
+mkdocs-material = "^9.5.34"
+mkdocstrings = {extras = ["crystal", "python"], version = "^0.26.0"}
 mkdocs-git-revision-date-localized-plugin = "^1.2.7"
 mkdocs-git-committers-plugin-2 = "^2.3.0"
-ruff = "^0.6.2"
+ruff = "^0.6.3"
 
 [build-system]
 requires = ["poetry-core"]
