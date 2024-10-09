@@ -7,10 +7,10 @@ class RequestError(Exception):
     def __init__(self, errors: Union[str, List[str]]) -> None:
         """
         Initialize a RequestError instance.
-        
+
         Args:
             errors (Union[str, List[str]]): A string or list of strings representing the error(s) encountered during the request.
-        
+
         Returns:
             None: This method doesn't return anything, it initializes the object.
         """
@@ -23,10 +23,10 @@ class UnsupportedMethodError(Exception):
 
     def __init__(self, method: str) -> None:
         """Initialize an UnsupportedMethodError exception.
-        
+
         Args:
             method (str): The unsupported HTTP method.
-        
+
         Returns:
             None: This method doesn't return anything.
         """
